@@ -218,33 +218,101 @@ let bicepsExercises = [
 ]
 
 let tricepsExercises = [
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Cable triceps extension",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/AdmirableSpicyElephantseal.webp"
     },
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Cable overhead triceps extension",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/OrangeAnchoredGoose.webp"
     },
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Barbell overhead triceps extension",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/DismalMeekCow.webp"
     },
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Dumbbell triceps extension",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/ImpressiveMemorableArabianoryx-max-1mb.gif"
     },
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Skull crushers",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/JollyBlissfulGavial.webp"
     },
-    {name: "",
-    muscles: "",
-    image: ""
+    {name: "Machine triceps extension",
+    muscles: "triceps",
+    image: "https://thumbs.gfycat.com/SomeFlamboyantGnatcatcher-max-1mb.gif"
     },
 ]
 
-let abdominalExercises = []
+let abdominalExercises = [
+    {name: "Abdominal crunch",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/FlimsyAchingAidi.webp"
+    },
+    {name: "Reverse crunch",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/RareWelcomeAfricanporcupine.webp"
+    },
+    {name: "Lying leg raise",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/AngelicJointArieltoucan.webp"
+    },
+    {name: "Mountain climbers",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp"
+    },
+    {name: "Cable crunch",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp"
+    },
+    {name: "Abdominal machine",
+    muscles: "rectus abdominis, obliques",
+    image: "https://thumbs.gfycat.com/FoolishBlueCoot.webp"
+    },
+]
+
+let cardioExercise = [
+    {name: "Walking",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/BlindDetailedHoatzin.webp"
+    },
+    {name: "Jogging",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/FeminineRealisticHoki.webp"
+    },
+    {name: "Biking",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/ImpartialThinDore.webp"
+    },
+    {name: "Battle ropes",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/ActualRichImago.webp"
+    },
+    {name: "Stairclimber",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/TheseWellinformedCassowary.webp"
+    },
+    {name: "Kettle bell swings",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/SmugVigilantElkhound.webp"
+    },
+    {name: "Rowing machine",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/DampPerkyHairstreakbutterfly.webp"
+    },
+    {name: "Elliptical machine",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/ZanySizzlingDowitcher.webp"
+    },
+    {name: "Plyometrics",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/MeaslyCarelessEskimodog.webp"
+    },
+    {name: "Burpees",
+    muscles: "the heart",
+    image: "https://thumbs.gfycat.com/HeartyTanIchthyosaurs.webp"
+    },
+]
 
 let exercises = {
     chest: chestExercises,
@@ -253,5 +321,6 @@ let exercises = {
     legs: legExercises,
     biceps: bicepsExercises,
     triceps: tricepsExercises,
-    abdominals: abdominalExercises
+    abdominals: abdominalExercises,
+    cardio: cardioExercise
 }
