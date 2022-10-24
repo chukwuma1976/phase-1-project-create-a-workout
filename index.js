@@ -1,4 +1,4 @@
-let chestExercises = [
+const chestExercises = [
     {name: "Bench press", 
     muscles: "pectoralis major, deltoids, triceps",
     image: "https://thumbs.gfycat.com/AngelicWhirlwindKronosaurus.webp"
@@ -37,7 +37,7 @@ let chestExercises = [
     },
 ]
 
-let shoulderExercises = [
+const shoulderExercises = [
     {name: "Dumbbell shoulder press",
     muscles: "anterior deltoid and triceps",
     image: "https://thumbs.gfycat.com/FeminineNecessaryAtlanticsharpnosepuffer.webp"
@@ -72,7 +72,7 @@ let shoulderExercises = [
     },
 ]
 
-let backExercises = [
+const backExercises = [
     {name: "Back hyperextensions",
     muscles: "spinal erectors, glutes, hamstrings",
     image: "https://thumbs.gfycat.com/InexperiencedAggravatingCrossbill.webp"
@@ -123,7 +123,7 @@ let backExercises = [
     },
 ]
 
-let legExercises = [
+const legExercises = [
     {name: "Barbell squat",
     muscles: "quads, glutes",
     image: "https://thumbs.gfycat.com/ShockedRigidBuffalo.webp"
@@ -198,7 +198,7 @@ let legExercises = [
     },
 ]
 
-let bicepsExercises = [
+const bicepsExercises = [
     {name: "Dumbell curls",
     muscles: "biceps, brachialis",
     image: "https://thumbs.gfycat.com/HastyMammothHairstreakbutterfly.webp"
@@ -217,7 +217,7 @@ let bicepsExercises = [
     },
 ]
 
-let tricepsExercises = [
+const tricepsExercises = [
     {name: "Cable triceps extension",
     muscles: "triceps",
     image: "https://thumbs.gfycat.com/AdmirableSpicyElephantseal.webp"
@@ -244,7 +244,7 @@ let tricepsExercises = [
     },
 ]
 
-let abdominalExercises = [
+const abdominalExercises = [
     {name: "Abdominal crunch",
     muscles: "rectus abdominis, obliques",
     image: "https://thumbs.gfycat.com/FlimsyAchingAidi.webp"
@@ -271,7 +271,7 @@ let abdominalExercises = [
     },
 ]
 
-let cardioExercise = [
+const cardioExercises = [
     {name: "Walking",
     muscles: "the heart",
     image: "https://thumbs.gfycat.com/BlindDetailedHoatzin.webp"
@@ -314,7 +314,7 @@ let cardioExercise = [
     },
 ]
 
-let exercises = {
+const exercises = {
     chest: chestExercises,
     shoulders: shoulderExercises,
     back: backExercises,
@@ -322,5 +322,20 @@ let exercises = {
     biceps: bicepsExercises,
     triceps: tricepsExercises,
     abdominals: abdominalExercises,
-    cardio: cardioExercise
+    cardio: cardioExercises
 }
+const exerciseKeys = Object.keys(exercises)
+
+const config = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(exercises)
+}
+
+fetch("http://localhost:3000", config)
+.then(response=>response.json())
+.then(workout=>console.log(workout))
+//.catch(error=>console.log((error.message)))
