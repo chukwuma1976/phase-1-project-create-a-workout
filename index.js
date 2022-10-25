@@ -1,5 +1,3 @@
-
-
 const exercises = {
     chest: [],
     shoulders: [],
@@ -17,13 +15,8 @@ function downloadExercises(object){
         let downloaded = 
             fetch(`http://localhost:3000/${keys}`)
             .then(response => response.json())
-            .then(data => {
-                object[keys]=data
-                console.log(data)
-                })
-            .catch((error)=>{
-            alert("There is an error");
-            })
+            .then(data => object[keys]=data)
+            .catch((error)=>alert("There is an error"))
         } 
     return object
 }
