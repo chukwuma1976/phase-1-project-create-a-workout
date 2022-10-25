@@ -349,5 +349,12 @@
         "musclesTrained": "chest, back, shoulders, arms, legs each trained one day per week",
         "frequency": "once per week for a total of 5 days of training",
         "maxFrequency": 1  
+    },
+    "customSplit": {
+        "name": "a custom training split",
+        "purpose": "a customized split that does not fit the other training splits",
+        "musclesTrained": "whatever you feel like training",
+        "frequency": "can vary",
+        "maxFrequency": 7  
     }
 }
