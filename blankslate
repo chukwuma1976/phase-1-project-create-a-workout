@@ -2,392 +2,317 @@
     "chest": [
         {"name": "Bench press", 
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/AngelicWhirlwindKronosaurus.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/AngelicWhirlwindKronosaurus.webp"
         },
         {"name": "Dumbbell bench press",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/DiscreteDismalApisdorsatalaboriosa.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/DiscreteDismalApisdorsatalaboriosa.webp"
         },
         {"name": "Machine bench press",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/LonelyVibrantKitfox-max-1mb.gif",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/LonelyVibrantKitfox-max-1mb.gif"
         },
         {"name": "Incline dumbbell press",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/AmpleCooperativeIndigobunting.webp",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/AmpleCooperativeIndigobunting.webp"
         },
         {"name": "Incline barbell press",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/ExemplaryDelectableDassierat.webp",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/ExemplaryDelectableDassierat.webp"
         },
         {"name": "Decline barbell press",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/DeepHeavyHuemul.webp",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/DeepHeavyHuemul.webp"
         },
         {"name": "Push-ups",
         "muscles": "pectoralis major, deltoids, triceps",
-        "image": "https://thumbs.gfycat.com/BriefMadeupAmericanwigeon-max-1mb.gif",
-        "id": 7
+        "image": "https://thumbs.gfycat.com/BriefMadeupAmericanwigeon-max-1mb.gif"
         },
         {"name": "Cable chest fly",
         "muscles": "pectoralis major",
-        "image": "https://thumbs.gfycat.com/BadShabbyHoneycreeper.webp",
-        "id": 8
+        "image": "https://thumbs.gfycat.com/BadShabbyHoneycreeper.webp"
         },
         {"name": "Dumbbell fly",
         "muscles": "pectoralis major",
-        "image": "https://thumbs.gfycat.com/HarmoniousRichHorse.webp",
-        "id": 9
+        "image": "https://thumbs.gfycat.com/HarmoniousRichHorse.webp"
         }
     ],
     "shoulders": [
         {"name": "Dumbbell shoulder press",
         "muscles": "anterior deltoid and triceps",
-        "image": "https://thumbs.gfycat.com/FeminineNecessaryAtlanticsharpnosepuffer.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/FeminineNecessaryAtlanticsharpnosepuffer.webp"
         },
         {"name": "Barbell shoulder press",
         "muscles": "anterior deltoid and triceps",
-        "image": "https://thumbs.gfycat.com/SpiffySimilarClingfish.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/SpiffySimilarClingfish.webp"
         },
         {"name": "Dumbbell lateral raise",
         "muscles": "lateral deltoid",
-        "image": "https://thumbs.gfycat.com/YoungLoneDarklingbeetle.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/YoungLoneDarklingbeetle.webp"
         },
         {"name": "Machine lateral raise",
         "muscles": "lateral deltoid",
-        "image": "https://thumbs.gfycat.com/DiscreteGrandHellbender.webp",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/DiscreteGrandHellbender.webp"
         },
         {"name": "Upright rows",
         "muscles": "lateral deltoid, traps",
-        "image": "https://thumbs.gfycat.com/MarvelousBlindAmericanriverotter.webp",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/MarvelousBlindAmericanriverotter.webp"
         },
         {"name": "Dumbbell rear deltoid fly",
         "muscles": "rear deltoid",
-        "image": "https://thumbs.gfycat.com/ChubbyEvilJellyfish.webp",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/ChubbyEvilJellyfish.webp"
         },
         {"name": "Cable rear deltoid fly",
         "muscles": "rear deltoid",
-        "image": "https://thumbs.gfycat.com/OfficialQuaintHadrosaurus-max-1mb.gif",
-        "id": 7
+        "image": "https://thumbs.gfycat.com/OfficialQuaintHadrosaurus-max-1mb.gif"
         },
         {"name": "Rear pec dec fly",
         "muscles": "rear deltoid",
-        "image": "https://thumbs.gfycat.com/WelloffSlushyGuineafowl.webp",
-        "id": 8
+        "image": "https://thumbs.gfycat.com/WelloffSlushyGuineafowl.webp"
         },
         {"name": "Face pulls",
         "muscles": "rear deltoid, midback, rotator cuff",
-        "image": "https://thumbs.gfycat.com/RemorsefulMarvelousGreathornedowl.webp",
-        "id": 9
+        "image": "https://thumbs.gfycat.com/RemorsefulMarvelousGreathornedowl.webp"
         },
         {"name": "Front raises",
         "muscles": "anterior deltoid",
-        "image": "https://thumbs.gfycat.com/AnchoredSlightAllensbigearedbat.webp",
-        "id": 10
+        "image": "https://thumbs.gfycat.com/AnchoredSlightAllensbigearedbat.webp"
         }
     ],
     "back": [
         {"name": "Back hyperextensions",
         "muscles": "spinal erectors, glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/InexperiencedAggravatingCrossbill.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/InexperiencedAggravatingCrossbill.webp"
         },
         {"name": "Machine row",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/WarpedFarawayBoutu-size_restricted.gif",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/WarpedFarawayBoutu-size_restricted.gif"
         },
         {"name": "T-bar row",
          "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/BiodegradableAbsoluteIsopod-max-1mb.gif}",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/BiodegradableAbsoluteIsopod-max-1mb.gif}"
         },
         {"name": "Machine high row",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/ElatedNewEelelephant-max-1mb.gif",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/ElatedNewEelelephant-max-1mb.gif"
         },
         {"name": "Machine assisted pull up",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/BigFamousCrocodileskink-max-1mb.gif",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/BigFamousCrocodileskink-max-1mb.gif"
         },
         {"name": "Latissimus pull down",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/DifficultPepperyBasenji.webp}",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/DifficultPepperyBasenji.webp}"
         },
         {"name": "Barbell rows",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/MagnificentValuableFunnelweaverspider.webp",
-        "id": 7
+        "image": "https://thumbs.gfycat.com/MagnificentValuableFunnelweaverspider.webp"
         },
         {"name": "Dumbbell rows",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/CautiousDopeyCondor.webp",
-        "id": 8
+        "image": "https://thumbs.gfycat.com/CautiousDopeyCondor.webp"
         },
         {"name": "Pull ups",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/BareWhiteAlleycat-max-1mb.gif",
-        "id": 9
+        "image": "https://thumbs.gfycat.com/BareWhiteAlleycat-max-1mb.gif"
         },
         {"name": "Seated cable rows",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/LightHotBrontosaurus.webp",
-        "id": 10
+        "image": "https://thumbs.gfycat.com/LightHotBrontosaurus.webp"
         },
         {"name": "Barbell shrugs",
         "muscles": "traps",
-        "image": "https://thumbs.gfycat.com/DependableMediumAlbacoretuna.webp",
-        "id": 11
+        "image": "https://thumbs.gfycat.com/DependableMediumAlbacoretuna.webp"
         },
         {"name": "Cable lat pullover",
         "muscles": "lats",
-        "image": "https://thumbs.gfycat.com/SerpentineCoolBluefintuna.webp",
-        "id": 12
+        "image": "https://thumbs.gfycat.com/SerpentineCoolBluefintuna.webp"
         }
     ],
     "legs": [
         {"name": "Barbell squat",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/ShockedRigidBuffalo.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/ShockedRigidBuffalo.webp"
         },
         {"name": "Barbell front squat",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/BoringCostlyDragon.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/BoringCostlyDragon.webp"
         },
         {"name": "Goblet squat",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/BountifulCostlyCopperhead.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/BountifulCostlyCopperhead.webp"
         },
         {"name": "Sissy squat",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/CoordinatedLimpingBandicoot-max-1mb.gif",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/CoordinatedLimpingBandicoot-max-1mb.gif"
         },
         {"name": "Hack squat",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/RipeDisloyalGazelle-max-1mb.gif ",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/RipeDisloyalGazelle-max-1mb.gif "
         },
         {"name": "Romanian/stiff leg deadlift",
         "muscles": "hamstrings, glutes",
-        "image": "https://thumbs.gfycat.com/ForcefulIllCrownofthornsstarfish.webp",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/ForcefulIllCrownofthornsstarfish.webp"
         },
         {"name": "Deadlift",
         "muscles": "traps, lats, spinal erectors, quads, glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/DeadlyNimbleJabiru-max-1mb.gif",
-        "id": 7
+        "image": "https://thumbs.gfycat.com/DeadlyNimbleJabiru-max-1mb.gif"
         },
         {"name": "Leg press",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/DefiniteMinorGoldenmantledgroundsquirrel.webp",
-        "id": 8
+        "image": "https://thumbs.gfycat.com/DefiniteMinorGoldenmantledgroundsquirrel.webp"
         },
         {"name": "Leg extension",
         "muscles": "quads, glutes",
-        "image": "https://thumbs.gfycat.com/ClumsyClutteredJaeger.webp",
-        "id": 9
+        "image": "https://thumbs.gfycat.com/ClumsyClutteredJaeger.webp"
         },
         {"name": "Lunges",
         "muscles": "quads, glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/BrownCleanFattaileddunnart.webp",
-        "id": 10
+        "image": "https://thumbs.gfycat.com/BrownCleanFattaileddunnart.webp"
         },
         {"name": "Split squat",
         "muscles": "quads, glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/AbleFondChick.webp",
-        "id": 11
+        "image": "https://thumbs.gfycat.com/AbleFondChick.webp"
         },
         {"name": "Lying hamstring curl",
         "muscles": "hamstrings",
-        "image": "https://thumbs.gfycat.com/AcclaimedWarmheartedKentrosaurus.webp ",
-        "id": 12
+        "image": "https://thumbs.gfycat.com/AcclaimedWarmheartedKentrosaurus.webp "
         },
         {"name": "Standing hamstring curl",
         "muscles": "hamstrings",
-        "image": "https://thumbs.gfycat.com/AnyFarawayCassowary-max-1mb.gif",
-        "id": 13
+        "image": "https://thumbs.gfycat.com/AnyFarawayCassowary-max-1mb.gif"
         },
         {"name": "Seated hamstring curl",
         "muscles": "hamstrings",
-        "image": "https://thumbs.gfycat.com/BreakableWickedKissingbug.webp",
-        "id": 14
+        "image": "https://thumbs.gfycat.com/BreakableWickedKissingbug.webp"
         },
         {"name": "Glute ham raise",
         "muscles": "glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/AcceptableSeparateBlacklab.webp",
-        "id": 15
+        "image": "https://thumbs.gfycat.com/AcceptableSeparateBlacklab.webp"
         },
         {"name": "Barbell hip thrusts",
         "muscles": "glutes, hamstrings",
-        "image": "https://thumbs.gfycat.com/ImportantMixedDevilfish-size_restricted.gif",
-        "id": 16
+        "image": "https://thumbs.gfycat.com/ImportantMixedDevilfish-size_restricted.gif"
         },
         {"name": "Standing calf raises",
         "muscles": "Gastrocnemius, soleus",
-        "image": "https://thumbs.gfycat.com/AmpleDecentGoldfinch.webp",
-        "id": 17
+        "image": "https://thumbs.gfycat.com/AmpleDecentGoldfinch.webp"
         },
         {"name": "Seated calf raises",
         "muscles": "Soleus, gastrocnemius",
-        "image": "https://www.strengthlog.com/wp-content/uploads/2020/03/calf-raise-seated.gif",
-        "id": 18
+        "image": "https://www.strengthlog.com/wp-content/uploads/2020/03/calf-raise-seated.gif"
         }
     ],
     "biceps": [
         {"name": "Dumbell curls",
         "muscles": "biceps, brachialis",
-        "image": "https://thumbs.gfycat.com/HastyMammothHairstreakbutterfly.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/HastyMammothHairstreakbutterfly.webp"
         },
         {"name": "Cable biceps curls",
         "muscles": "biceps, brachialis",
-        "image": "https://thumbs.gfycat.com/JointThunderousLiger.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/JointThunderousLiger.webp"
         },
         {"name": "Barbell curls",
         "muscles": "biceps, brachialis",
-        "image": "https://thumbs.gfycat.com/AbandonedExhaustedEkaltadeta.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/AbandonedExhaustedEkaltadeta.webp"
         },
         {"name": "Machine biceps curls",
         "muscles": "biceps, brachialis",
-        "image": "https://thumbs.gfycat.com/WebbedFoolhardyHarvestmen.webp",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/WebbedFoolhardyHarvestmen.webp"
         }
     ],
     "triceps": [
         {"name": "Cable triceps extension",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/AdmirableSpicyElephantseal.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/AdmirableSpicyElephantseal.webp"
         },
         {"name": "Cable overhead triceps extension",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/OrangeAnchoredGoose.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/OrangeAnchoredGoose.webp"
         },
         {"name": "Barbell overhead triceps extension",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/DismalMeekCow.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/DismalMeekCow.webp"
         },
         {"name": "Dumbbell triceps extension",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/ImpressiveMemorableArabianoryx-max-1mb.gif",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/ImpressiveMemorableArabianoryx-max-1mb.gif"
         },
         {"name": "Skull crushers",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/JollyBlissfulGavial.webp",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/JollyBlissfulGavial.webp"
         },
         {"name": "Machine triceps extension",
         "muscles": "triceps",
-        "image": "https://thumbs.gfycat.com/SomeFlamboyantGnatcatcher-max-1mb.gif",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/SomeFlamboyantGnatcatcher-max-1mb.gif"
         }
     ],
     "abdominals": [
         {"name": "Abdominal crunch",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/FlimsyAchingAidi.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/FlimsyAchingAidi.webp"
         },
         {"name": "Reverse crunch",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/RareWelcomeAfricanporcupine.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/RareWelcomeAfricanporcupine.webp"
         },
         {"name": "Lying leg raise",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/AngelicJointArieltoucan.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/AngelicJointArieltoucan.webp"
         },
         {"name": "Mountain climbers",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp"
         },
         {"name": "Cable crunch",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/ForthrightCalculatingGoral.webp"
         },
         {"name": "Abdominal machine",
         "muscles": "rectus abdominis, obliques",
-        "image": "https://thumbs.gfycat.com/FoolishBlueCoot.webp",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/FoolishBlueCoot.webp"
         }
     ],
     "cardio": [
         {"name": "Walking",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/BlindDetailedHoatzin.webp",
-        "id": 1
+        "image": "https://thumbs.gfycat.com/BlindDetailedHoatzin.webp"
         },
         {"name": "Jogging",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/FeminineRealisticHoki.webp",
-        "id": 2
+        "image": "https://thumbs.gfycat.com/FeminineRealisticHoki.webp"
         },
         {"name": "Biking",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/ImpartialThinDore.webp",
-        "id": 3
+        "image": "https://thumbs.gfycat.com/ImpartialThinDore.webp"
         },
         {"name": "Battle ropes",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/ActualRichImago.webp",
-        "id": 4
+        "image": "https://thumbs.gfycat.com/ActualRichImago.webp"
         },
         {"name": "Stairclimber",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/TheseWellinformedCassowary.webp",
-        "id": 5
+        "image": "https://thumbs.gfycat.com/TheseWellinformedCassowary.webp"
         },
         {"name": "Kettle bell swings",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/SmugVigilantElkhound.webp",
-        "id": 6
+        "image": "https://thumbs.gfycat.com/SmugVigilantElkhound.webp"
         },
         {"name": "Rowing machine",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/DampPerkyHairstreakbutterfly.webp",
-        "id": 7
+        "image": "https://thumbs.gfycat.com/DampPerkyHairstreakbutterfly.webp"
         },
         {"name": "Elliptical machine",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/ZanySizzlingDowitcher.webp",
-        "id": 8
+        "image": "https://thumbs.gfycat.com/ZanySizzlingDowitcher.webp"
         },
         {"name": "Plyometrics",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/MeaslyCarelessEskimodog.webp",
-        "id": 9
+        "image": "https://thumbs.gfycat.com/MeaslyCarelessEskimodog.webp"
         },
         {"name": "Burpees",
         "muscles": "the heart",
-        "image": "https://thumbs.gfycat.com/HeartyTanIchthyosaurs.webp",
-        "id": 10
+        "image": "https://thumbs.gfycat.com/HeartyTanIchthyosaurs.webp"
         }
     ],
     "fullBody" : {
@@ -395,47 +320,41 @@
         "purpose": "works every muscle group in one workout",
         "musclesTrained": "chest, back, shoulders, arms and legs in one workout",
         "frequency": "2-6 times per week for a total of 2-6 days of training",
-        "maxFrequency": 6,
-        "id": 1
+        "maxFrequency": 6
     },
     "upperLower" : {
         "name": "Upper lower workout",
         "purpose": "works the body in two workouts, one for upper body muscles and one for lower body muscles",
         "musclesTrained": "chest, back, shoulders, arms on one day and legs on the other day",
         "frequency": "2-3 times per week for a total of 4-6 days of training",
-        "maxFrequency": 3,
-        "id": 1
+        "maxFrequency": 3
     },
     "pushPullLegs" : {
         "name": "Push pull legs workout",
         "purpose": "works the body in three workouts, one for push muscles, one for pull muscles, and one for lower body muscles",
         "musclesTrained": "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         "frequency": "2 times per week for a total of 6 days of training",
-        "maxFrequency": 2,
-        "id": 1
+        "maxFrequency": 2
     },
     "arnoldSplit" : {
         "name": "Arnold split workout, named after Arnold Schwarzenegger who used this split",
         "purpose": "works the body in three workouts, one for chest and back, one for shoulders and arms, and one for legs",
         "musclesTrained": "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         "frequency": "2 times per week for a total of 6 days of training",
-        "maxFrequency": 2,
-        "id": 1
+        "maxFrequency": 2
     },
     "broSplit" : {
         "name": "body part split, aka Bro split popularized by gym bros around the world",
         "purpose": "works the body dedicating a day for each body part: ex. chest day, back day, shoulder day, arm day and leg day",
         "musclesTrained": "chest, back, shoulders, arms, legs each trained one day per week",
         "frequency": "once per week for a total of 5 days of training",
-        "maxFrequency": 1  ,
-        "id": 1
+        "maxFrequency": 1  
     },
     "customSplit": {
         "name": "a custom training split",
         "purpose": "a customized split that does not fit the other training splits",
         "musclesTrained": "whatever you feel like training",
         "frequency": "can vary",
-        "maxFrequency": 7,
-        "id": 1
+        "maxFrequency": 7  
     }
 }

@@ -8,19 +8,6 @@ const exercises = {
     abdominals: [],
     cardio: []
 }
-
-function downloadExercises(object){
-    const exerciseKeys = Object.keys(object)
-    for (let keys of exerciseKeys){
-        const downloaded = 
-            fetch(`http://localhost:3000/${keys}`)
-            .then(response => response.json())
-            .then(data => object[keys]=data)
-            .catch((error)=>alert("There is an error"))
-        } 
-    return object
-}
-
 const workOutSplits = {
     fullBody: {}, 
     upperLower: {}, 
@@ -30,27 +17,101 @@ const workOutSplits = {
     customSplit: {}
 }
 
-const legDay = [exercises.legs]
-const chestDay = [...exercises.chest]
-const backDay = [...exercises.back]
-const shoulderDay = [...exercises.shoulders]
-const armDay = [...exercises.biceps, ...exercises.triceps]
+const exerciseKeys = Object.keys(exercises)
+for (let keys of exerciseKeys){
+    fetch(`http://localhost:3000/${keys}`)
+    .then(response => response.json())
+    .then(data=>{
+        let i=0
+        for (let piece of data){
+            exercises[keys][i]=renderObject(piece)
+            i++
+        }
+        console.log(exercises[keys])
+        return exercises[keys]
+        })
+    .catch((error)=>alert("There is an error"))
+    }   
 
-const upperDay = [chestDay, backDay, shoulderDay, armDay]
+const splitKeys = Object.keys(workOutSplits)
+for (let keys of splitKeys){
+    fetch(`http://localhost:3000/${keys}`)
+    .then(response => response.json())
+    .then(data=>{
+            workOutSplits[keys]=renderObject(data)
+            return workOutSplits[keys]
+        })
+    .catch((error)=>alert("There is an error"))
+    }
 
-const fullBodyDay = [chestDay, backDay, shoulderDay, armDay, legDay]
-
-const pushDay = [chestDay, shoulderDay, exercises.triceps]
-const pullDay = [backDay, shoulderDay, exercises.biceps]
-
-const chestAndBack = [chestDay, backDay]
-const shouldersAndArms = [shoulderDay, armDay]
-
-downloadExercises(exercises)
-downloadExercises(workOutSplits)
+function renderObject(type){
+    let newObject = {}
+    let keys = Object.keys(type)
+    for (let key of keys){newObject[key]=type[key]}
+    return newObject
+}
 
 console.log(exercises)
+console.log(exercises.legs[1])
+console.log(Object.keys(exercises.legs))
 console.log(workOutSplits)
+console.log(workOutSplits.arnoldSplit)
+
+const legDay = {legs: []}
+const chestDay = {chest: []}
+const backDay = {back: []}
+const shoulderDay = {shoulders: []}
+const armDay = {biceps: [], triceps: []}
+
+const upperDay = {
+    chest: [], 
+    back: [], 
+    shoulders: [], 
+    biceps: [], 
+    triceps: []
+}
+const fullBodyDay = {
+    chest: [], 
+    back: [], 
+    shoulders: [], 
+    biceps: [], 
+    triceps: [], 
+    legs: []}
+
+const pushDay = {
+    chest: [], 
+    shoulders: [], 
+    triceps: []
+}
+const pullDay = {
+    back: [], 
+    shoulders: [], 
+    biceps: [], 
+}
+
+const chestAndBack = {chest: [], back: []}
+const shouldersAndArms = { 
+    shoulders: [], 
+    biceps: [], 
+    triceps: []
+}
+const arrayOfExerciseDays = [
+    legDay, 
+    chestDay, 
+    backDay, 
+    shoulderDay, 
+    armDay, 
+    upperDay, 
+    fullBodyDay, 
+    pushDay, 
+    pullDay, 
+    chestAndBack, 
+    shouldersAndArms]
+
+// for (const day of arrayOfExerciseDays){
+//     for (let workout in day) {downloadExercises(workout)}
+//     console.log(day)
+// }
 
 //Why work out header and inner elements
 const whyWorkOutList = document.getElementsByTagName('ul')[0]
@@ -114,44 +175,84 @@ function appendHowToWorkOut(){
     return howToWorkOutList
 }
 
+//event listeners for the first two headers
+whyWorkOutHeader.addEventListener('mouseover', ()=>{
+    if (whyWorkOutList.innerHTML==='') appendWhyWorkOut() 
+    else whyWorkOutList.innerHTML=''
+    return whyWorkOutList
+})
+howToWorkOutHeader.addEventListener('mouseover', ()=>{
+    if (howToWorkOutList.innerHTML==='') appendHowToWorkOut()
+    else howToWorkOutList.innerHTML=''
+    return whyWorkOutList
+})
 const exerciseInfoHeader = document.getElementById('exercise-information')
 const exerciseInfoList = document.getElementsByTagName('ul')[2]
+const paragraph = document.createElement('p')
 
 const createWorkOutHeader = document.getElementById('create-workout')
 const createWorkOutList = document.getElementsByTagName('ul')[3]
+const description = document.createElement('p')
 
-// appendWhyWorkOut()
-// appendHowToWorkOut()
+let infoHeaderClicked = false
+let exerciseButtonClicked = false
 
-whyWorkOutHeader.addEventListener('click', ()=>{
-    if (whyWorkOutList.innerHTML===''){
-        appendWhyWorkOut()
-        console.log('I was opened')
-    } else {whyWorkOutList.innerHTML=''}
-    return whyWorkOutList
+let createWorkOutClicked = false
+let workOutButtonClicked = false
+
+exerciseInfoHeader.addEventListener('click', ()=>{
+    exerciseInfoList.innerHTML = ""
+    if (infoHeaderClicked){infoHeaderClicked=false} 
+    else {
+        infoHeaderClicked=true
+        for (const keys of exerciseKeys){
+            let bodypart = document.createElement("button")
+            bodypart.textContent = keys
+            bodypart.id = keys
+            exerciseInfoList.append(bodypart)
+            renderExercise(keys)
+        }
+    }
 })
-howToWorkOutHeader.addEventListener('click', ()=>{
-    if (howToWorkOutList.innerHTML===''){
-        appendHowToWorkOut()
-        console.log('I was opened')
-    } else {howToWorkOutList.innerHTML=''}
-    return whyWorkOutList
+function renderExercise(muscle){
+    let button = document.getElementById(muscle)
+    exerciseInfoList.append(paragraph)
+    button.addEventListener("click", ()=>{
+        if (exerciseButtonClicked) {
+            exerciseButtonClicked=false
+            paragraph.textContent = ""
+            }
+        else {
+            exerciseButtonClicked=true
+            paragraph.textContent = `I'm still trying to load these ${muscle} exercises`
+        }
+    })
+}
+createWorkOutHeader.addEventListener('click', ()=>{
+    createWorkOutList.innerHTML = ""
+    if (infoHeaderClicked){infoHeaderClicked=false} 
+    else {
+        infoHeaderClicked=true
+        for (const keys of splitKeys){
+            let workOutSplit = document.createElement("button")
+            workOutSplit.textContent = keys
+            workOutSplit.id = keys
+            createWorkOutList.append(workOutSplit)
+            renderSplit(keys)
+        }
+    }
 })
-
-// function expandHeader(header, list, callback){
-//     header.addEventListener('click', ()=>{
-//         if (list.innerHtML !== ""){
-//             console.log(list.innerHTML)
-//             list.innerHTML = ""
-//             console.log("I have collapsed")
-//         }
-//         else {
-//             console.log(list.innerHTML)
-//             callback
-//             console.log("I have opened", callback)
-//         }
-//         //return list
-//     })
-// }
-// expandHeader(whyWorkOutHeader, whyWorkOutList, appendWhyWorkOut)
-// expandHeader(howToWorkOutHeader, howToWorkOutList, appendHowToWorkOut)
+function renderSplit(workout){
+    let button = document.getElementById(workout)
+    createWorkOutList.append(description)
+    button.addEventListener("click", ()=>{
+        if (workOutButtonClicked) {
+            workOutButtonClicked=false
+            description.textContent = ""
+            }
+        else {
+            workOutButtonClicked=true
+            description.textContent = `I'm still trying to load these ${workout} splits`
+        }
+    })
+}
