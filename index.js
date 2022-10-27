@@ -27,7 +27,6 @@ for (let keys of exerciseKeys){
             exercises[keys][i]=renderObject(piece)
             i++
         }
-        console.log(exercises[keys])
         return exercises[keys]
         })
     .catch((error)=>alert("There is an error"))
@@ -50,12 +49,6 @@ function renderObject(type){
     for (let key of keys){newObject[key]=type[key]}
     return newObject
 }
-
-console.log(exercises)
-console.log(exercises.legs[1])
-console.log(Object.keys(exercises.legs))
-console.log(workOutSplits)
-console.log(workOutSplits.arnoldSplit)
 
 const legDay = {legs: []}
 const chestDay = {chest: []}
@@ -189,6 +182,7 @@ howToWorkOutHeader.addEventListener('mouseover', ()=>{
 const exerciseInfoHeader = document.getElementById('exercise-information')
 const exerciseInfoList = document.getElementsByTagName('ul')[2]
 const paragraph = document.createElement('p')
+const exerciseList = document.createElement ('div')
 
 const createWorkOutHeader = document.getElementById('create-workout')
 const createWorkOutList = document.getElementsByTagName('ul')[3]
@@ -200,6 +194,7 @@ let exerciseButtonClicked = false
 let createWorkOutClicked = false
 let workOutButtonClicked = false
 
+//Event listener for exercise information
 exerciseInfoHeader.addEventListener('click', ()=>{
     exerciseInfoList.innerHTML = ""
     if (infoHeaderClicked){infoHeaderClicked=false} 
@@ -221,13 +216,38 @@ function renderExercise(muscle){
         if (exerciseButtonClicked) {
             exerciseButtonClicked=false
             paragraph.textContent = ""
+            exerciseList.innerHTML = ""
             }
         else {
             exerciseButtonClicked=true
-            paragraph.textContent = `I'm still trying to load these ${muscle} exercises`
+            paragraph.textContent = `Here are some ${muscle} exercises.  Click an exercise below to learn more`
+            paragraph.append(exerciseList)
+            displayListOfExercises(muscle)
         }
     })
 }
+
+function displayListOfExercises(bodypart){
+    fetch(`http://localhost:3000/${bodypart}`)
+    .then(response => response.json())
+    .then(data=>{
+        for (let piece of data){
+            let ex = document.createElement('p')
+            ex.id = piece.name
+            ex.style.color = "blue"
+            ex.textContent = piece.name
+            exerciseList.append(ex)
+            describeLift(piece)
+            }
+        })
+    .catch((error)=>alert("There is an error"))
+}
+function describeLift(lift){
+    thisLift = document.getElementById("lift")
+    thisLift.addEventListener('click', ()=> console.log(lift.muscles))
+}
+
+//Event listener for creating a workout
 createWorkOutHeader.addEventListener('click', ()=>{
     createWorkOutList.innerHTML = ""
     if (infoHeaderClicked){infoHeaderClicked=false} 
