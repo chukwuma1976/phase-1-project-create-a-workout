@@ -23,23 +23,24 @@ const workOutSplits = {
         maxFrequency: 2
     }, 
     arnoldSplit: {
-        name: "Arnold split workout, named after Arnold Schwarzenegger who used this split",
+        name: "Arnold split workout",
         purpose: "works the body in three workouts, one for chest and back, one for shoulders and arms, and one for legs",
         musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training",
         maxFrequency: 2
     }, 
     broSplit: {
-        name: "body part split, aka 'Bro' split popularized by gym bros around the world",
+        name: "Body part split, aka 'Bro' split",
         purpose: "works the body dedicating a day for each body part: ex. chest day, back day, shoulder day, arm day and leg day",
         musclesTrained: "chest, back, shoulders, arms, legs each trained one day per week",
         frequency: "once per week for a total of 5 days of training",
         maxFrequency: 1
     },
-    customSplit: {name: "a custom training split",
-        purpose: "a customized split that does not fit the other training splits",
+    customSplit: {
+        name: "Custom training split",
+        purpose: "is a customized split that does not fit the other training splits",
         musclesTrained: "whatever you feel like training",
-        frequency: "can vary",
+        frequency: "variable",
         maxFrequency: 7}
 }
 
@@ -178,6 +179,7 @@ const exerciseList = document.createElement ('div')
 const createWorkOutHeader = document.getElementById('create-workout')
 const createWorkOutList = document.getElementsByTagName('ul')[3]
 const description = document.createElement('p')
+const splitList = document.createElement('div')
 
 let infoHeaderClicked = false
 let exerciseButtonClicked = false
@@ -226,7 +228,7 @@ function displayListOfExercises(bodypart){
             let ex = document.createElement('p')
             ex.id = piece.name
             ex.style.color = "blue"
-            ex.textContent = piece.name
+            ex.textContent = piece.name.toUpperCase()
             exerciseList.append(ex)
             let lift = document.getElementById(piece.name)
             lift.addEventListener('click', ()=>liftDescription(piece))
@@ -239,7 +241,7 @@ function liftDescription(lift){
     let lifted = document.getElementById(lift.name)
     lifted.innerHTML = ""
     let ul = document.createElement('ul')
-    ul.textContent = lift.name
+    ul.textContent = lift.name.toUpperCase()
     let description = document.createElement('p')
     description.textContent = `${lift.name} focuses on these muscles: ${lift.muscles}.`
     let image = document.createElement('img')
@@ -256,7 +258,7 @@ createWorkOutHeader.addEventListener('click', ()=>{
         infoHeaderClicked=true
         for (const keys of splitKeys){
             let workOutSplit = document.createElement("button")
-            workOutSplit.textContent = keys
+            workOutSplit.textContent = workOutSplits[keys].name
             workOutSplit.id = keys
             createWorkOutList.append(workOutSplit)
             renderSplit(keys)
@@ -270,10 +272,37 @@ function renderSplit(workout){
         if (workOutButtonClicked) {
             workOutButtonClicked=false
             description.textContent = ""
+            splitList.innerHTML = ""
             }
         else {
             workOutButtonClicked=true
-            description.textContent = `I'm still trying to load these ${workout} splits`
+            description.textContent = `Learn about the workout below`
+            description.append(splitList)
+            displaySplit(workOutSplits[workout])
         }
     })
+}
+
+// const createWorkOutHeader = document.getElementById('create-workout')
+// const createWorkOutList = document.getElementsByTagName('ul')[3]
+// const description = document.createElement('p')
+// const splitList = document.createElement('div')
+
+// name: "Custom training split",
+// purpose: "a customized split that does not fit the other training splits",
+// musclesTrained: "whatever you feel like training",
+// frequency: "can vary",
+// maxFrequency: 7}
+
+function displaySplit(split){
+    let nameOf = document.createElement('p')
+    nameOf.textContent = split.name.toUpperCase()
+    nameOf.style.backgroundColor = 'lightsalmon'
+    let purpose = document.createElement('p')
+    purpose.textContent =`${split.name} ${split.purpose}.  It trains ${split.musclesTrained}.`
+    let occurence = document.createElement('p')
+    occurence.textContent = `The frequency is ${split.frequency}.  The maximum frequency is ${split.maxFrequency} per week.`
+
+    splitList.append(nameOf, purpose, occurence)
+    createWorkOutList.append(splitList)
 }

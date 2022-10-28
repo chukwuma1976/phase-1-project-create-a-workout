@@ -111,7 +111,7 @@
         },
         {"name": "T-bar row",
          "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/BiodegradableAbsoluteIsopod-max-1mb.gif}",
+        "image": "https://thumbs.gfycat.com/HonestDeepBillygoat.webp",
         "id": 3
         },
         {"name": "Machine high row",
@@ -126,7 +126,7 @@
         },
         {"name": "Latissimus pull down",
         "muscles": "lats, traps, rhomboids, teres major",
-        "image": "https://thumbs.gfycat.com/DifficultPepperyBasenji.webp}",
+        "image": "https://thumbs.gfycat.com/AgonizingFarflungBluefintuna.webp",
         "id": 6
         },
         {"name": "Barbell rows",
@@ -389,53 +389,5 @@
         "image": "https://thumbs.gfycat.com/HeartyTanIchthyosaurs.webp",
         "id": 10
         }
-    ],
-    "fullBody" : {
-        "name": "Full body workout",
-        "purpose": "works every muscle group in one workout",
-        "musclesTrained": "chest, back, shoulders, arms and legs in one workout",
-        "frequency": "2-6 times per week for a total of 2-6 days of training",
-        "maxFrequency": 6,
-        "id": 1
-    },
-    "upperLower" : {
-        "name": "Upper lower workout",
-        "purpose": "works the body in two workouts, one for upper body muscles and one for lower body muscles",
-        "musclesTrained": "chest, back, shoulders, arms on one day and legs on the other day",
-        "frequency": "2-3 times per week for a total of 4-6 days of training",
-        "maxFrequency": 3,
-        "id": 1
-    },
-    "pushPullLegs" : {
-        "name": "Push pull legs workout",
-        "purpose": "works the body in three workouts, one for push muscles, one for pull muscles, and one for lower body muscles",
-        "musclesTrained": "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
-        "frequency": "2 times per week for a total of 6 days of training",
-        "maxFrequency": 2,
-        "id": 1
-    },
-    "arnoldSplit" : {
-        "name": "Arnold split workout, named after Arnold Schwarzenegger who used this split",
-        "purpose": "works the body in three workouts, one for chest and back, one for shoulders and arms, and one for legs",
-        "musclesTrained": "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
-        "frequency": "2 times per week for a total of 6 days of training",
-        "maxFrequency": 2,
-        "id": 1
-    },
-    "broSplit" : {
-        "name": "body part split, aka Bro split popularized by gym bros around the world",
-        "purpose": "works the body dedicating a day for each body part: ex. chest day, back day, shoulder day, arm day and leg day",
-        "musclesTrained": "chest, back, shoulders, arms, legs each trained one day per week",
-        "frequency": "once per week for a total of 5 days of training",
-        "maxFrequency": 1  ,
-        "id": 1
-    },
-    "customSplit": {
-        "name": "a custom training split",
-        "purpose": "a customized split that does not fit the other training splits",
-        "musclesTrained": "whatever you feel like training",
-        "frequency": "can vary",
-        "maxFrequency": 7,
-        "id": 1
-    }
+    ]
 }
