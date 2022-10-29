@@ -290,12 +290,10 @@ function renderSplit(workout){
     button.addEventListener("click", ()=>{
         if (workOutButtonClicked) {
             workOutButtonClicked=false
-            description.textContent = ""
             splitList.innerHTML = ""
             }
         else {
             workOutButtonClicked=true
-            description.textContent = ``
             description.append(splitList)
             displaySplit(workOutSplits[workout])
             makeWorkOut(workOutSplits[workout])
@@ -355,8 +353,9 @@ function renderAndSelect(dayOfSplit, day){
         let dropdown = document.createElement('button')
         dropdown.className = "dropdown"
         dropdown.textContent = `Select ${lifts} exercises`
-
-        selectExercises(lifts)
+        
+        dropdown.addEventListener('click', ()=>selectExercises(lifts))
+        
         wrkoutdy.append(dropdown)
         }
     splitList.append(wrkoutdy)
