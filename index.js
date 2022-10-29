@@ -295,7 +295,7 @@ function renderSplit(workout){
             }
         else {
             workOutButtonClicked=true
-            description.textContent = `Learn about the workout below`
+            description.textContent = ``
             description.append(splitList)
             displaySplit(workOutSplits[workout])
             makeWorkOut(workOutSplits[workout])
@@ -348,10 +348,16 @@ function makeWorkOut (mySplit){
 }
 function renderAndSelect(dayOfSplit, day){
     let wrkoutdy = document.createElement('div')
-    wrkoutdy.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
-    console.log(`${day.toUpperCase()} DAY ${i} EXERCISES`)
+    let header = document.createElement('header')
+    header.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
+    wrkoutdy.append(header)
     for (const lifts of dayOfSplit){
+        let dropdown = document.createElement('button')
+        dropdown.className = "dropdown"
+        dropdown.textContent = `Select ${lifts} exercises`
+
         selectExercises(lifts)
+        wrkoutdy.append(dropdown)
         }
     splitList.append(wrkoutdy)
 }
@@ -360,28 +366,11 @@ function selectExercises(bodypart){
     fetch(`http://localhost:3000/${bodypart}`)
     .then(response => response.json())
     .then(data=>{
-        let dropdown = document.createElement('div')
-        dropdown.className = "dropdown"
-        dropdown.textContent = `Pick around 1 to 5 ${bodypart} exercises`
-        
-        let btn = document.createElement('button')
-        btn.className = 'dropbtn'
-
-        let dropdownMenu = document.createElement('div')
-        dropdownMenu.id = "dropdownMenu"
-        dropdownMenu.className = "dropdown-content"
-
         for (let piece of data){
             console.log(piece.name)
-            let singleLift = document.createElement('p')
-            singleLift.href = "#"
-            singleLift.textContent = piece.name
-            dropdownMenu.append(singleLift)
             // lift.addEventListener('click', ()=>liftDescription(piece))
             // }
         }
-        dropdown.append(btn, dropdownMenu)
-        wrkoutdy.append(dropdown)
     })
     .catch((error)=>alert("There is an error"))
     }
