@@ -284,18 +284,6 @@ createWorkOutHeader.addEventListener('click', ()=>{
     }
 })
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    let form = document.querySelector("form")
-    let freq
-    form.addEventListener('submit', (e)=>{
-        e.preventDefault()
-        console.log('I was submitted')
-        console.log(e)  
-        console.log(e.target.number.value)
-        console.log(form.number)
-        })
-    })
-
 function renderSplit(workout){
     let button = document.getElementById(workout)
     createWorkOutList.append(description)
@@ -328,24 +316,37 @@ function displaySplit(split){
     createWorkOutList.append(splitList)
 }
 function makeWorkOut (mySplit){
-    // let form = document.getElementsByTagName("form")
-    // // form.id = "frequency"
+    let frequency = document.createElement("form")
+    frequency.id = "frequency"
 
-    // let label = document.querySelector("label")
-    // label.textContent = `Enter workout frequency for ${mySplit.name} less than or equal to ${mySplit.maxFrequency}.`
+    let label = document.createElement("label")
+    label.textContent = `Enter workout frequency for ${mySplit.name} less than or equal to ${mySplit.maxFrequency}.`
 
-    // let entry = document.querySelector("input")
-    // entry.value = `${mySplit.maxFrequency}`
-    // // entry.id = "number"
-    // // entry.type = "number"
-    // entry.min = "1"
-    // entry.max = `${mySplit.maxFrequency}`
+    let input = document.createElement("input")
+    input.placeholder = `${mySplit.maxFrequency}`
+    input.id = "numero"
+    input.type = "text"
+    
+    let input2 = document.createElement("button")
+    input2.className = "submit"
+    input2.type = "submit"
+    input2.textContent = "submit"
+
+    frequency.append(label, input, input2)
+    splitList.append(frequency)
+
+    let freq = mySplit.maxFrequency
+    frequency.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        if (e.target.numero.value < mySplit.maxFrequency){
+            freq = e.target.numero.value}
+    })
 
     let keysOfLifts = Object.keys(mySplit.workOutDays)
     
     for (const key of keysOfLifts){
-        //console.log(`This is ${key} and ${mySplit.workOutDays[key]}`)
-        renderAndSelect(mySplit.workOutDays[key], key, freq)
+        console.log(`This is ${key} and ${mySplit.workOutDays[key]}`)
+        // renderAndSelect(mySplit.workOutDays[key], key, freq)
     }  
 }
 function renderAndSelect(dayOfSplit, day, cycles){
