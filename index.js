@@ -1,104 +1,117 @@
 const exerciseKeys = ['chest', 'shoulders', 'back', 'legs', 'biceps', 'triceps', 'abdominals', 'cardio']
 
+const legDay = ["legs"]
+const chestDay = ["chest"]
+const backDay = ["back"]
+const shoulderDay = ["shoulders"]
+const armDay = ["biceps", "triceps"]
+
+const upperDay = [
+    "chest", 
+    "back", 
+    "shoulders", 
+    "biceps", 
+    "triceps"
+]
+const fullBodyDay = [
+    "chest", 
+    "back", 
+    "shoulders", 
+    "biceps", 
+    "triceps",
+    "legs"
+]
+const pushDay = [
+    "chest",  
+    "shoulders", 
+    "triceps"
+]
+const pullDay = [
+    "back", 
+    "shoulders", 
+    "biceps"
+]
+
+const chestAndBack = ["chest", "back"]
+
+const shouldersAndArms = [
+    "shoulders",
+    "biceps",
+    "triceps"
+]
+
 const workOutSplits = {
     fullBody: {
         name: "Full body workout",
-        purpose: "works every muscle group in one workout",
+        purpose: "works every muscle group in the body in one workout",
         musclesTrained: "chest, back, shoulders, arms and legs in one workout",
-        frequency: "2-6 times per week for a total of 2-6 days of training",
-        maxFrequency: 6
+        frequency: "2-6 times per week for a total of 2-6 days of training per week",
+        maxFrequency: 6,
+        workOutDays: {fullbody: fullBodyDay}
     }, 
     upperLower: {
         name: "Upper lower workout",
-        purpose: "works the body in two workouts, one for upper body muscles and one for lower body muscles",
-        musclesTrained: "chest, back, shoulders, arms on one day and legs on the other day",
-        frequency: "2-3 times per week for a total of 4-6 days of training",
-        maxFrequency: 3
+        purpose: "works the entire body in two workouts, one for upper body muscles and one for lower body muscles",
+        musclesTrained: "chest, back, shoulders, arms (upper body) on one day and legs (lower body) on the other day",
+        frequency: "2-3 times per week for a total of 4-6 days of training per week",
+        maxFrequency: 3,
+        workOutDays: {
+            upper: upperDay, 
+            lower: legDay
+        }
     }, 
     pushPullLegs: {
         name: "Push pull legs workout",
-        purpose: "works the body in three workouts, one for push muscles, one for pull muscles, and one for lower body muscles",
-        musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
+        purpose: "works the entire body in three workouts, one for push muscles, one for pull muscles, and one for lower body muscles",
+        musclesTrained: "chest, triceps, shoulders (push muscles) on day 1, back, shoulders, biceps (pull muscles) on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training",
-        maxFrequency: 2
+        maxFrequency: 2,
+        workOutDays: {
+            push: pushDay, 
+            pull: pullDay,
+            legs: legDay
+        }
     }, 
     arnoldSplit: {
         name: "Arnold split workout",
-        purpose: "works the body in three workouts, one for chest and back, one for shoulders and arms, and one for legs",
+        purpose: "works the entire body in three workouts, one for chest and back, one for shoulders and arms, and one for legs",
         musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
-        frequency: "2 times per week for a total of 6 days of training",
-        maxFrequency: 2
+        frequency: "2 times per week for a total of 6 days of training per week",
+        maxFrequency: 2,
+        workOutDays: {
+            chestAndBack: chestAndBack, 
+            shouldersAndArms: shouldersAndArms, 
+            legs: legDay
+        }
     }, 
     broSplit: {
         name: "Body part split, aka 'Bro' split",
         purpose: "works the body dedicating a day for each body part: ex. chest day, back day, shoulder day, arm day and leg day",
         musclesTrained: "chest, back, shoulders, arms, legs each trained one day per week",
-        frequency: "once per week for a total of 5 days of training",
-        maxFrequency: 1
+        frequency: "once per week for a total of 5 days of training per week",
+        maxFrequency: 1,
+        workOutDays: {
+            chest: chestDay, 
+            back: backDay, 
+            shoulder: shoulderDay, 
+            arm: armDay, 
+            leg: legDay
+        }
     },
     customSplit: {
         name: "Custom training split",
         purpose: "is a customized split that does not fit the other training splits",
         musclesTrained: "whatever you feel like training",
         frequency: "variable",
-        maxFrequency: 7}
+        maxFrequency: 6,
+        workOutDays: {custom: fullBodyDay}
+    }
 }
 
 const splitKeys = Object.keys(workOutSplits)
 
-const legDay = {legs: []}
-const chestDay = {chest: []}
-const backDay = {back: []}
-const shoulderDay = {shoulders: []}
-const armDay = {biceps: [], triceps: []}
-
-const upperDay = {
-    chest: [], 
-    back: [], 
-    shoulders: [], 
-    biceps: [], 
-    triceps: []
-}
-const fullBodyDay = {
-    chest: [], 
-    back: [], 
-    shoulders: [], 
-    biceps: [], 
-    triceps: [], 
-    legs: []}
-
-const pushDay = {
-    chest: [], 
-    shoulders: [], 
-    triceps: []
-}
-const pullDay = {
-    back: [], 
-    shoulders: [], 
-    biceps: [], 
-}
-
-const chestAndBack = {chest: [], back: []}
-
-const shouldersAndArms = { 
-    shoulders: [], 
-    biceps: [], 
-    triceps: []
-}
-const arrayOfExerciseDays = [
-    legDay, 
-    chestDay, 
-    backDay, 
-    shoulderDay, 
-    armDay, 
-    upperDay, 
-    fullBodyDay, 
-    pushDay, 
-    pullDay, 
-    chestAndBack, 
-    shouldersAndArms]
-
 //Why work out header and inner elements
+
 const whyWorkOutList = document.getElementsByTagName('ul')[0]
 whyWorkOutList.innerHTML = ""
 const whyWorkOutHeader = document.getElementById('why-workout')
@@ -160,7 +173,8 @@ function appendHowToWorkOut(){
     return howToWorkOutList
 }
 
-//event listeners for the first two headers
+//event listeners for the top two headers
+
 whyWorkOutHeader.addEventListener('mouseover', ()=>{
     if (whyWorkOutList.innerHTML==='') appendWhyWorkOut() 
     else whyWorkOutList.innerHTML=''
@@ -171,6 +185,8 @@ howToWorkOutHeader.addEventListener('mouseover', ()=>{
     else howToWorkOutList.innerHTML=''
     return whyWorkOutList
 })
+// ===============================================
+
 const exerciseInfoHeader = document.getElementById('exercise-information')
 const exerciseInfoList = document.getElementsByTagName('ul')[2]
 const paragraph = document.createElement('p')
@@ -188,6 +204,7 @@ let createWorkOutClicked = false
 let workOutButtonClicked = false
 
 //Event listener for exercise information
+
 exerciseInfoHeader.addEventListener('click', ()=>{
     exerciseInfoList.innerHTML = ""
     if (infoHeaderClicked){infoHeaderClicked=false} 
@@ -251,6 +268,7 @@ function liftDescription(lift){
 }
 
 //Event listener for creating a workout
+
 createWorkOutHeader.addEventListener('click', ()=>{
     createWorkOutList.innerHTML = ""
     if (infoHeaderClicked){infoHeaderClicked=false} 
@@ -265,6 +283,19 @@ createWorkOutHeader.addEventListener('click', ()=>{
         }
     }
 })
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    let form = document.querySelector("form")
+    let freq
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        console.log('I was submitted')
+        console.log(e)  
+        console.log(e.target)
+        console.log(form.input.value)
+        })
+    })
+
 function renderSplit(workout){
     let button = document.getElementById(workout)
     createWorkOutList.append(description)
@@ -279,20 +310,10 @@ function renderSplit(workout){
             description.textContent = `Learn about the workout below`
             description.append(splitList)
             displaySplit(workOutSplits[workout])
+            makeWorkOut(workOutSplits[workout])
         }
     })
 }
-
-// const createWorkOutHeader = document.getElementById('create-workout')
-// const createWorkOutList = document.getElementsByTagName('ul')[3]
-// const description = document.createElement('p')
-// const splitList = document.createElement('div')
-
-// name: "Custom training split",
-// purpose: "a customized split that does not fit the other training splits",
-// musclesTrained: "whatever you feel like training",
-// frequency: "can vary",
-// maxFrequency: 7}
 
 function displaySplit(split){
     let nameOf = document.createElement('p')
@@ -301,8 +322,56 @@ function displaySplit(split){
     let purpose = document.createElement('p')
     purpose.textContent =`${split.name} ${split.purpose}.  It trains ${split.musclesTrained}.`
     let occurence = document.createElement('p')
-    occurence.textContent = `The frequency is ${split.frequency}.  The maximum frequency is ${split.maxFrequency} per week.`
+    occurence.textContent = `The frequency is ${split.frequency}.  The maximum frequency is ${split.maxFrequency} times per week.`
 
     splitList.append(nameOf, purpose, occurence)
     createWorkOutList.append(splitList)
 }
+function makeWorkOut (mySplit){
+    // let form = document.getElementsByTagName("form")
+    // // form.id = "frequency"
+
+    // let label = document.querySelector("label")
+    // label.textContent = `Enter workout frequency for ${mySplit.name} less than or equal to ${mySplit.maxFrequency}.`
+
+    // let entry = document.querySelector("input")
+    // entry.value = `${mySplit.maxFrequency}`
+    // // entry.id = "number"
+    // // entry.type = "number"
+    // entry.min = "1"
+    // entry.max = `${mySplit.maxFrequency}`
+
+    let keysOfLifts = Object.keys(mySplit.workOutDays)
+    
+    for (const key of keysOfLifts){
+        //console.log(`This is ${key} and ${mySplit.workOutDays[key]}`)
+        renderAndSelect(mySplit.workOutDays[key], key, freq)
+    }  
+}
+function renderAndSelect(dayOfSplit, day, cycles){
+    for (i=1; i<=cycles; i++){
+        let ul = document.createElement('ul')
+        ul.textContent = `${day} day${i} exercises`
+        for (const lifts in dayOfSplit){
+            console.log(`Here is ${lifts}`)
+        }
+        createWorkOutList.append(ul)
+    }
+}
+
+// function displayListOfExercises(bodypart){
+//     fetch(`http://localhost:3000/${bodypart}`)
+//     .then(response => response.json())
+//     .then(data=>{
+//         for (let piece of data){
+//             let ex = document.createElement('p')
+//             ex.id = piece.name
+//             ex.style.color = "blue"
+//             ex.textContent = piece.name.toUpperCase()
+//             exerciseList.append(ex)
+//             let lift = document.getElementById(piece.name)
+//             lift.addEventListener('click', ()=>liftDescription(piece))
+//             }
+//         })
+//     .catch((error)=>alert("There is an error"))
+//     }
