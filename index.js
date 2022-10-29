@@ -346,30 +346,48 @@ function makeWorkOut (mySplit){
 }
 function renderAndSelect(dayOfSplit, day){
     let wrkoutdy = document.createElement('div')
-    let header = document.createElement('header')
+    let header = document.createElement('h4')
     header.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
+    let exerciseChoices = document.createElement('div')
     wrkoutdy.append(header)
     for (const lifts of dayOfSplit){
         let dropdown = document.createElement('button')
         dropdown.className = "dropdown"
         dropdown.textContent = `Select ${lifts} exercises`
         
-        dropdown.addEventListener('click', ()=>selectExercises(lifts))
+        dropdown.addEventListener('click', (e)=>{
+            e.preventDefault()
+            fetch(`http://localhost:3000/${lifts}`)
+            .then(response => response.json())
+            .then(data=>{
+                for (let piece of data){
+                    console.log(piece.name)
+                    let thisLift = document.createElement('p')
+                    thisLift.textContent = piece.name
+                    // thisLift.addEventListener('click', ()=>liftDescription(piece))
+                    exerciseChoices.append(thisLift)
+                }
+            })
+            .catch((error)=>alert("There is an error"))
+        })
         
-        wrkoutdy.append(dropdown)
+        wrkoutdy.append(dropdown, exerciseChoices)
         }
     splitList.append(wrkoutdy)
 }
 
-function selectExercises(bodypart){
-    fetch(`http://localhost:3000/${bodypart}`)
-    .then(response => response.json())
-    .then(data=>{
-        for (let piece of data){
-            console.log(piece.name)
-            // lift.addEventListener('click', ()=>liftDescription(piece))
-            // }
-        }
-    })
-    .catch((error)=>alert("There is an error"))
-    }
+// function selectExercises(bodypart){
+
+//     fetch(`http://localhost:3000/${bodypart}`)
+//     .then(response => response.json())
+//     .then(data=>{
+//         for (let piece of data){
+//             console.log(piece.name)
+//             let thisLift = document.createElement('a')
+//             thisLift.textContent = piece.name
+//             // thisLift.addEventListener('click', ()=>liftDescription(piece))
+//             wrkoutdy.append(thisLift)
+//         }
+//     })
+//     .catch((error)=>alert("There is an error"))
+//     }
