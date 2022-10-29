@@ -291,8 +291,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         e.preventDefault()
         console.log('I was submitted')
         console.log(e)  
-        console.log(e.target)
-        console.log(form.input.value)
+        console.log(e.target.number.value)
+        console.log(form.number)
         })
     })
 
