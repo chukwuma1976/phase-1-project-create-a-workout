@@ -360,8 +360,23 @@ function selectExercises(bodypart){
     fetch(`http://localhost:3000/${bodypart}`)
     .then(response => response.json())
     .then(data=>{
+        let dropdown = document.createElement('div')
+        dropdown.className = "dropdown"
+        dropdown.textContent = `Pick around 1 to 5 ${bodypart} exercises`
+        
+        let btn = document.createElement('button')
+        btn.className = 'dropbtn'
+
+        let dropdownMenu = document.createElement('div')
+        dropdownMenu.id = "dropdownMenu"
+        dropdownMenu.className = "dropdown-content"
+
         for (let piece of data){
             console.log(piece.name)
+            let singleLift = document.createElement('p')
+            singleLift.href = "#"
+            singleLift.textContent = piece.name
+            dropdownMenu.append(singleLift)
             // let ex = document.createElement('p')
             // ex.id = piece.name
             // ex.style.color = "blue"
@@ -371,6 +386,8 @@ function selectExercises(bodypart){
             // lift.addEventListener('click', ()=>liftDescription(piece))
             // }
         }
+        dropdown.append(btn, dropdownMenu)
+        splitList.append(dropdown)
     })
     .catch((error)=>alert("There is an error"))
     }
