@@ -377,17 +377,11 @@ function selectExercises(bodypart){
             singleLift.href = "#"
             singleLift.textContent = piece.name
             dropdownMenu.append(singleLift)
-            // let ex = document.createElement('p')
-            // ex.id = piece.name
-            // ex.style.color = "blue"
-            // ex.textContent = piece.name.toUpperCase()
-            // exerciseList.append(ex)
-            // let lift = document.getElementById(piece.name)
             // lift.addEventListener('click', ()=>liftDescription(piece))
             // }
         }
         dropdown.append(btn, dropdownMenu)
-        splitList.append(dropdown)
+        wrkoutdy.append(dropdown)
     })
     .catch((error)=>alert("There is an error"))
     }
