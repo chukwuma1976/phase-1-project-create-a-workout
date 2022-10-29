@@ -79,8 +79,8 @@ const workOutSplits = {
         frequency: "2 times per week for a total of 6 days of training per week",
         maxFrequency: 2,
         workOutDays: {
-            chestAndBack: chestAndBack, 
-            shouldersAndArms: shouldersAndArms, 
+            chest_And_Back: chestAndBack, 
+            shoulders_And_Arms: shouldersAndArms, 
             legs: legDay
         }
     }, 
@@ -317,7 +317,6 @@ function displaySplit(split){
 }
 function makeWorkOut (mySplit){
     let frequency = document.createElement("form")
-    frequency.id = "frequency"
 
     let label = document.createElement("label")
     label.textContent = `Enter workout frequency for ${mySplit.name} less than or equal to ${mySplit.maxFrequency}.`
@@ -327,52 +326,51 @@ function makeWorkOut (mySplit){
     input.id = "numero"
     input.type = "text"
     
-    let input2 = document.createElement("button")
-    input2.className = "submit"
-    input2.type = "submit"
-    input2.textContent = "submit"
+    let button = document.createElement("button")
+    button.type = "submit"
+    button.textContent = "submit"
 
-    frequency.append(label, input, input2)
+    frequency.append(label, input, button)
     splitList.append(frequency)
 
-    let freq = mySplit.maxFrequency
+    let freq
     frequency.addEventListener('submit', (e)=>{
         e.preventDefault()
         if (e.target.numero.value < mySplit.maxFrequency){
-            freq = e.target.numero.value}
-    })
-
-    let keysOfLifts = Object.keys(mySplit.workOutDays)
+            freq = e.target.numero.value
+        } else freq = mySplit.maxFrequency
+        let keysOfLifts = Object.keys(mySplit.workOutDays)
     
-    for (const key of keysOfLifts){
-        console.log(`This is ${key} and ${mySplit.workOutDays[key]}`)
-        // renderAndSelect(mySplit.workOutDays[key], key, freq)
-    }  
+        for (i=1; i<=freq; i++){
+            for (const key of keysOfLifts){renderAndSelect(mySplit.workOutDays[key], key)}
+            } 
+    }) 
 }
-function renderAndSelect(dayOfSplit, day, cycles){
-    for (i=1; i<=cycles; i++){
-        let ul = document.createElement('ul')
-        ul.textContent = `${day} day${i} exercises`
-        for (const lifts in dayOfSplit){
-            console.log(`Here is ${lifts}`)
+function renderAndSelect(dayOfSplit, day){
+    let wrkoutdy = document.createElement('div')
+    wrkoutdy.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
+    console.log(`${day.toUpperCase()} DAY ${i} EXERCISES`)
+    for (const lifts of dayOfSplit){
+        selectExercises(lifts)
         }
-        createWorkOutList.append(ul)
-    }
+    splitList.append(wrkoutdy)
 }
 
-// function displayListOfExercises(bodypart){
-//     fetch(`http://localhost:3000/${bodypart}`)
-//     .then(response => response.json())
-//     .then(data=>{
-//         for (let piece of data){
-//             let ex = document.createElement('p')
-//             ex.id = piece.name
-//             ex.style.color = "blue"
-//             ex.textContent = piece.name.toUpperCase()
-//             exerciseList.append(ex)
-//             let lift = document.getElementById(piece.name)
-//             lift.addEventListener('click', ()=>liftDescription(piece))
-//             }
-//         })
-//     .catch((error)=>alert("There is an error"))
-//     }
+function selectExercises(bodypart){
+    fetch(`http://localhost:3000/${bodypart}`)
+    .then(response => response.json())
+    .then(data=>{
+        for (let piece of data){
+            console.log(piece.name)
+            // let ex = document.createElement('p')
+            // ex.id = piece.name
+            // ex.style.color = "blue"
+            // ex.textContent = piece.name.toUpperCase()
+            // exerciseList.append(ex)
+            // let lift = document.getElementById(piece.name)
+            // lift.addEventListener('click', ()=>liftDescription(piece))
+            // }
+        }
+    })
+    .catch((error)=>alert("There is an error"))
+    }
