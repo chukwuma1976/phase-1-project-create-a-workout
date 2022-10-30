@@ -6,39 +6,17 @@ const backDay = ["back"]
 const shoulderDay = ["shoulders"]
 const armDay = ["biceps", "triceps"]
 
-const upperDay = [
-    "chest", 
-    "back", 
-    "shoulders", 
-    "biceps", 
-    "triceps"
-]
-const fullBodyDay = [
-    "chest", 
-    "back", 
-    "shoulders", 
-    "biceps", 
-    "triceps",
-    "legs"
-]
-const pushDay = [
-    "chest",  
-    "shoulders", 
-    "triceps"
-]
-const pullDay = [
-    "back", 
-    "shoulders", 
-    "biceps"
-]
+const upperDay = ["chest", "back", "shoulders", "biceps", "triceps"]
+
+const fullBodyDay = ["chest", "back", "shoulders", "biceps", "triceps","legs"]
+
+const pushDay = ["chest",  "shoulders", "triceps"]
+
+const pullDay = ["back", "shoulders", "biceps"]
 
 const chestAndBack = ["chest", "back"]
 
-const shouldersAndArms = [
-    "shoulders",
-    "biceps",
-    "triceps"
-]
+const shouldersAndArms = [ "shoulders", "biceps", "triceps"]
 
 const workOutSplits = {
     fullBody: {
@@ -55,10 +33,7 @@ const workOutSplits = {
         musclesTrained: "chest, back, shoulders, arms (upper body) on one day and legs (lower body) on the other day",
         frequency: "2-3 times per week for a total of 4-6 days of training per week",
         maxFrequency: 3,
-        workOutDays: {
-            upper: upperDay, 
-            lower: legDay
-        }
+        workOutDays: {upper: upperDay, lower: legDay}
     }, 
     pushPullLegs: {
         name: "Push pull legs workout",
@@ -66,10 +41,7 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders (push muscles) on day 1, back, shoulders, biceps (pull muscles) on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training",
         maxFrequency: 2,
-        workOutDays: {
-            push: pushDay, 
-            pull: pullDay,
-            legs: legDay
+        workOutDays: {push: pushDay, pull: pullDay,legs: legDay
         }
     }, 
     arnoldSplit: {
@@ -78,10 +50,7 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training per week",
         maxFrequency: 2,
-        workOutDays: {
-            chest_And_Back: chestAndBack, 
-            shoulders_And_Arms: shouldersAndArms, 
-            legs: legDay
+        workOutDays: {chest_And_Back: chestAndBack, shoulders_And_Arms: shouldersAndArms, legs: legDay
         }
     }, 
     broSplit: {
@@ -90,13 +59,7 @@ const workOutSplits = {
         musclesTrained: "chest, back, shoulders, arms, legs each trained one day per week",
         frequency: "once per week for a total of 5 days of training per week",
         maxFrequency: 1,
-        workOutDays: {
-            chest: chestDay, 
-            back: backDay, 
-            shoulder: shoulderDay, 
-            arm: armDay, 
-            leg: legDay
-        }
+        workOutDays: {chest: chestDay, back: backDay, shoulder: shoulderDay, arm: armDay, leg: legDay}
     },
     customSplit: {
         name: "Custom training split",
@@ -147,7 +110,6 @@ function appendWhyWorkOut(){
     p5.append(span1)
 
     whyWorkOutList.append(p1,p2,p3,p4,p5)
-    return whyWorkOutList
 }
 
 //How to work out header and inner elements
@@ -170,7 +132,6 @@ function appendHowToWorkOut(){
     p4.textContent ="You can start by selecting a workout split or customize your own split.  Don't forget to do your cardio."
 
     howToWorkOutList.append(p1,p2,p3,p4)
-    return howToWorkOutList
 }
 
 //event listeners for the top two headers
@@ -178,12 +139,10 @@ function appendHowToWorkOut(){
 whyWorkOutHeader.addEventListener('mouseover', ()=>{
     if (whyWorkOutList.innerHTML==='') appendWhyWorkOut() 
     else whyWorkOutList.innerHTML=''
-    return whyWorkOutList
 })
 howToWorkOutHeader.addEventListener('mouseover', ()=>{
     if (howToWorkOutList.innerHTML==='') appendHowToWorkOut()
     else howToWorkOutList.innerHTML=''
-    return whyWorkOutList
 })
 // ===============================================
 
@@ -196,6 +155,7 @@ const createWorkOutHeader = document.getElementById('create-workout')
 const createWorkOutList = document.getElementsByTagName('ul')[3]
 const description = document.createElement('p')
 const splitList = document.createElement('div')
+const workoutWeek = document.createElement("div")
 
 let infoHeaderClicked = false
 let exerciseButtonClicked = false
@@ -339,13 +299,14 @@ function makeWorkOut (mySplit){
         } else freq = mySplit.maxFrequency
         let keysOfLifts = Object.keys(mySplit.workOutDays)
     
+        workoutWeek.innerHTML = ""
         for (i=1; i<=freq; i++){
             for (const key of keysOfLifts){renderAndSelect(mySplit.workOutDays[key], key)}
             } 
     }) 
 }
 function renderAndSelect(dayOfSplit, day){
-    let wrkoutdy = document.createElement('div')
+    let wrkoutdy = document.createElement('ul')
     let header = document.createElement('h4')
     header.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
     let exerciseChoices = document.createElement('div')
@@ -356,7 +317,7 @@ function renderAndSelect(dayOfSplit, day){
         dropdown.textContent = `Select ${lifts} exercises`
         
         dropdown.addEventListener('click', (e)=>{
-            e.preventDefault()
+            exerciseChoices.innerHTML = ""
             fetch(`http://localhost:3000/${lifts}`)
             .then(response => response.json())
             .then(data=>{
@@ -369,25 +330,11 @@ function renderAndSelect(dayOfSplit, day){
                 }
             })
             .catch((error)=>alert("There is an error"))
+            e.preventDefault()
         })
         
         wrkoutdy.append(dropdown, exerciseChoices)
+        workoutWeek.append(wrkoutdy)
         }
-    splitList.append(wrkoutdy)
+    splitList.append(workoutWeek)
 }
-
-// function selectExercises(bodypart){
-
-//     fetch(`http://localhost:3000/${bodypart}`)
-//     .then(response => response.json())
-//     .then(data=>{
-//         for (let piece of data){
-//             console.log(piece.name)
-//             let thisLift = document.createElement('a')
-//             thisLift.textContent = piece.name
-//             // thisLift.addEventListener('click', ()=>liftDescription(piece))
-//             wrkoutdy.append(thisLift)
-//         }
-//     })
-//     .catch((error)=>alert("There is an error"))
-//     }
