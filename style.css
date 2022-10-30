@@ -1,10 +1,13 @@
-body {
-  background: lightgoldenrodyellow
-  }
+body {background: lightgoldenrodyellow}
+
 h3 {
   color: darkblue;
   background: lightcyan;
 }
-h1 {
-  background: lightskyblue
+
+h1 {background: lightskyblue}
+
+#workout-split {
+  color: blue;
+  background: gold
 }

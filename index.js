@@ -155,7 +155,9 @@ const createWorkOutHeader = document.getElementById('create-workout')
 const createWorkOutList = document.getElementsByTagName('ul')[3]
 const description = document.createElement('p')
 const splitList = document.createElement('div')
-const workoutWeek = document.createElement("div")
+const workoutWeek = document.createElement('div')
+const yourWorkOutList = document.getElementById('workout-list')
+const yourWorkOutHeader = document.getElementById('workout-split')
 
 let infoHeaderClicked = false
 let exerciseButtonClicked = false
@@ -206,25 +208,32 @@ function displayListOfExercises(bodypart){
             ex.id = piece.name
             ex.style.color = "blue"
             ex.textContent = piece.name.toUpperCase()
-            exerciseList.append(ex)
-            let lift = document.getElementById(piece.name)
-            lift.addEventListener('click', ()=>liftDescription(piece))
-            }
-        })
-    .catch((error)=>alert("There is an error"))
-    }
 
-function liftDescription(lift){
-    let lifted = document.getElementById(lift.name)
-    lifted.innerHTML = ""
-    let ul = document.createElement('ul')
-    ul.textContent = lift.name.toUpperCase()
-    let description = document.createElement('p')
-    description.textContent = `${lift.name} focuses on these muscles: ${lift.muscles}.`
-    let image = document.createElement('img')
-    image.src = lift.image
-    ul.append(description, image)
-    lifted.append(ul)
+            let ul = document.createElement('ul')
+            
+            let liftClicked = false
+
+            ex.addEventListener('click', ()=>{
+                if (liftClicked){
+                    liftClicked=false
+                    ul.innerHTML = ""
+                }
+                else {
+                    liftClicked=true
+
+                    let description = document.createElement('p')
+                    description.textContent = `${piece.name} focuses on these muscles: ${piece.muscles}.`
+                    let image = document.createElement('img')
+                    image.src = piece.image
+
+                    ul.append(description, image)
+                    ex.append(ul)
+                }
+            })
+            exerciseList.append(ex)
+        }
+    })
+    .catch((error)=>alert("There is an error"))
 }
 
 //Event listener for creating a workout
@@ -251,6 +260,8 @@ function renderSplit(workout){
         if (workOutButtonClicked) {
             workOutButtonClicked=false
             splitList.innerHTML = ""
+            yourWorkOutHeader.textContent = ""
+            yourWorkOutList.innerHTML = ""
             }
         else {
             workOutButtonClicked=true
@@ -272,6 +283,7 @@ function displaySplit(split){
 
     splitList.append(nameOf, purpose, occurence)
     createWorkOutList.append(splitList)
+    yourWorkOutHeader.textContent = `YOUR PERSONAL ${split.name.toUpperCase()}`
 }
 function makeWorkOut (mySplit){
     let frequency = document.createElement("form")
@@ -309,27 +321,53 @@ function renderAndSelect(dayOfSplit, day){
     let wrkoutdy = document.createElement('ul')
     let header = document.createElement('h4')
     header.textContent = `${day.toUpperCase()} DAY ${i} EXERCISES`
-    let exerciseChoices = document.createElement('div')
+    header.style.color = "purple"
     wrkoutdy.append(header)
+    let exerciseChoices = document.createElement('div')
+
+    let liftDay = document.createElement('p')
+    liftDay.textContent =  `${day} day ${i}`
+    liftDay.id = `${day}${i}`
+    //yourWorkOutList.append(liftDay)
+
+
     for (const lifts of dayOfSplit){
         let dropdown = document.createElement('button')
         dropdown.className = "dropdown"
         dropdown.textContent = `Select ${lifts} exercises`
+        let bodypartClicked = false
         
         dropdown.addEventListener('click', (e)=>{
             exerciseChoices.innerHTML = ""
-            fetch(`http://localhost:3000/${lifts}`)
-            .then(response => response.json())
-            .then(data=>{
-                for (let piece of data){
-                    console.log(piece.name)
-                    let thisLift = document.createElement('p')
-                    thisLift.textContent = piece.name
-                    // thisLift.addEventListener('click', ()=>liftDescription(piece))
-                    exerciseChoices.append(thisLift)
-                }
-            })
-            .catch((error)=>alert("There is an error"))
+            if (bodypartClicked){bodypartClicked=false}
+            else {
+                bodypartClicked=true
+
+                fetch(`http://localhost:3000/${lifts}`)
+                .then(response => response.json())
+                .then(data=>{
+                    for (let piece of data){
+                        let thisLift = document.createElement('p')
+                        thisLift.textContent = piece.name
+                        thisLift.addEventListener('click', ()=>{
+                            console.log(piece.name)
+                            // addOrRemove(piece.name)
+                            let newLift = document.createElement('p')
+                            newLift.textContent = `${piece.name}  `
+                            //newLift.style.color = 'purple'
+
+                            let deleteBtn = document.createElement('button')
+                            deleteBtn.textContent = "delete"
+
+                            newLift.append(deleteBtn)
+                            liftDay.append(newLift)
+                            deleteBtn.addEventListener('click', ()=>newLift.remove())
+                        })
+                        exerciseChoices.append(thisLift)
+                    }
+                })
+                .catch((error)=>alert("There is an error"))
+            }   
             e.preventDefault()
         })
         
@@ -337,4 +375,18 @@ function renderAndSelect(dayOfSplit, day){
         workoutWeek.append(wrkoutdy)
         }
     splitList.append(workoutWeek)
+    yourWorkOutList.append(liftDay)
 }
+// function addOrRemove (thisLift){
+//     let newLift = document.createElement('p')
+//     newLift.textContent = `${thisLift}  `
+//     newLift.style.color = 'purple'
+
+//     let deleteBtn = document.createElement('button')
+//     deleteBtn.textContent = "delete"
+
+//     newLift.append(deleteBtn)
+//     liftDay.append(newLift)
+//     deleteBtn.addEventListener('click', ()=>newLift.remove())
+
+// }

@@ -20,7 +20,7 @@ The first one is titled "Why workout?"  When you hover over this header with a m
 
 The second one is titled "Recommendations on working out."  Like the first header it expands when you hover over it and display recommendations which pertain to exercise.
 
-The third header is titled "Click here for some information about different exercises."  It opens up to eight buttons which display a body part.  These buttons are collapsible with a click. When you click on a button it expands to display different exercises for that body part.  Furthermore, you can click on each exercise for a description and image of that lift being performed.
+The third header is titled "Click here for some information about different exercises."  It opens up to eight buttons which display a body part.  These buttons are collapsible with a click. When you click on a button it expands to display different exercises for that body part.  Furthermore, you can click on each exercise for a description and image of that lift being performed.  Each body part button is collapsible as well.
 
 The fourth header is titled "Click here to create your workout."  It opens up to six buttons (all collapsible) which each represent a different training split.  When you click a button it provides a description of that training split.  It then asks for a training frequency.  Once you enter a training frequency, your workout days along with buttons representing body parts trained under each workout day opens up.  Each button represents a drop down menu that allows you to pick different exercises and construct a workout.
 
