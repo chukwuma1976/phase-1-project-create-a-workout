@@ -70,59 +70,38 @@ const splitKeys = Object.keys(workOutSplits)
 
 //Why work out header and inner elements
 
-const whyWorkOutList = document.getElementsByTagName('ul')[0]
+const whyWorkOutList = document.getElementById('why')
 whyWorkOutList.innerHTML = ""
 const whyWorkOutHeader = document.getElementById('why-workout')
 
 function appendWhyWorkOut(){
     let p1 = document.createElement('p')
     p1.textContent ="WEIGHT LOSS: exercise with a calorie deficit (eating fewer calories than you burn)"
-
     let p2 = document.createElement('p')
     p2.textContent ="BODY RECOMPOSITION: you may want to gain muscle and lose fat but maintain your body weight"
-
     let p3 = document.createElement('p')
     p3.textContent ="IMPROVED APPEARANCE: having a lean muscular body can be more attractive"
-
     let p4 = document.createElement('p')
     p4.textContent ="OVERALL HEALTH: at least 150 minutes per week of moderate intensity cardio can reduce mortality  "
-    let span = document.createElement('span')
-    let webpage = document.createElement ('a')
-        webpage.target = "_blank"
-        webpage.href = "https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults"
-        webpage.text ="AHA guidelines"
-    span.append(webpage)
-    p4.append(span)
-
     let p5 = document.createElement('p')
     p5.textContent ="GET STRONGER: also at least 30 minutes per week of resistance training can reduce mortalty  "
-    let span1 = document.createElement('span')
-    let webpage1 = document.createElement ('a')
-        webpage1.target = "blank"
-        webpage1.href = "https://bjsm.bmj.com/content/56/13/755"
-        webpage1.text ="BMJ study"
-    span1.append(webpage1)
-    p5.append(span1)
 
     whyWorkOutList.append(p1,p2,p3,p4,p5)
 }
 
 //How to work out header and inner elements
 
-const howToWorkOutList = document.getElementsByTagName('ul')[1]
+const howToWorkOutList = document.getElementById('how')
 howToWorkOutList.innerHTML = ""
 const howToWorkOutHeader = document.getElementById('how-to-workout')
 
 function appendHowToWorkOut(){
     let p1 = document.createElement('p')
     p1.textContent = "HOW MANY DAYS AND HOW MUCH TIME CAN YOU COMMIT?  WHAT DO YOU LIKE TO DO?"
-
     let p2 = document.createElement('p')
     p2.textContent = "If you are really busy 2 days a week for 45 minutes each day may be pushing it. For most people 2-4 days per week is feasible."
-
     let p3 = document.createElement('p')
     p3.textContent ="If you like lifting weights do it.  If you like other forms of physical activity do that. The best workout is the one you like to do that you can stick to and gives you results."
-
     let p4 = document.createElement('p')
     p4.textContent ="You can start by selecting a workout split or customize your own split.  Don't forget to do your cardio."
 
@@ -142,12 +121,12 @@ howToWorkOutHeader.addEventListener('mouseover', ()=>{
 // ===============================================
 
 const exerciseInfoHeader = document.getElementById('exercise-information')
-const exerciseInfoList = document.getElementsByTagName('ul')[2]
+const exerciseInfoList = document.getElementById('information')
 const paragraph = document.createElement('p')
 const exerciseList = document.createElement ('div')
 
 const createWorkOutHeader = document.getElementById('create-workout')
-const createWorkOutList = document.getElementsByTagName('ul')[3]
+const createWorkOutList = document.getElementById('create')
 const description = document.createElement('p')
 const splitList = document.createElement('div')
 const workoutWeek = document.createElement('div')
@@ -167,13 +146,13 @@ exerciseInfoHeader.addEventListener('click', ()=>{
     if (infoHeaderClicked){infoHeaderClicked=false} 
     else {
         infoHeaderClicked=true
-        for (const keys of exerciseKeys){
+        exerciseKeys.forEach (keys=>{
             let bodypart = document.createElement("button")
             bodypart.textContent = keys
             bodypart.id = keys
             exerciseInfoList.append(bodypart)
             renderExercise(keys)
-        }
+        })
     }
 })
 //====================================================
@@ -237,16 +216,16 @@ function displayListOfExercises(bodypart){
 
 createWorkOutHeader.addEventListener('click', ()=>{
     createWorkOutList.innerHTML = ""
-    if (infoHeaderClicked){infoHeaderClicked=false} 
+    if (infoHeaderClicked)infoHeaderClicked=false 
     else {
         infoHeaderClicked=true
-        for (const keys of splitKeys){
+        splitKeys.forEach (keys=>{
             let workOutSplit = document.createElement("button")
             workOutSplit.textContent = workOutSplits[keys].name
             workOutSplit.id = keys
             createWorkOutList.append(workOutSplit)
             renderSplit(keys)
-        }
+        })
     }
 })
 //=======================================================
@@ -306,15 +285,12 @@ function makeWorkOut (mySplit){
     let freq
     frequency.addEventListener('submit', (e)=>{
         e.preventDefault()
-        if (e.target.numero.value < mySplit.maxFrequency){
-            freq = e.target.numero.value
-        } else freq = mySplit.maxFrequency
+        if (e.target.numero.value < mySplit.maxFrequency)freq = e.target.numero.value 
+            else freq = mySplit.maxFrequency
         let keysOfLifts = Object.keys(mySplit.workOutDays)
     
         workoutWeek.innerHTML = ""
-        for (i=1; i<=freq; i++){
-            for (const key of keysOfLifts){renderAndSelect(mySplit.workOutDays[key], key)}
-            } 
+        for (i=1; i<=freq; i++){keysOfLifts.forEach (key=>renderAndSelect(mySplit.workOutDays[key], key))} 
     }) 
 }
 
@@ -331,7 +307,7 @@ function renderAndSelect(dayOfSplit, day){
     liftDay.textContent =  `${day.toUpperCase()} DAY ${i}`
     liftDay.className = "workout-day"
 
-    for (const lifts of dayOfSplit){
+    dayOfSplit.forEach (lifts=>{
         let dropdown = document.createElement('button')
         dropdown.className = "dropdown"
         dropdown.textContent = `Select ${lifts} exercises`
@@ -371,12 +347,10 @@ function renderAndSelect(dayOfSplit, day){
                 })
                 .catch((error)=>alert("There is an error"))
             }   
-            e.preventDefault()
-        })
-        
+        })   
         wrkoutdy.append(dropdown, exerciseChoices)
         workoutWeek.append(wrkoutdy)
-        }
+        })
     splitList.append(workoutWeek)
     yourWorkOutList.append(liftDay)
 }
