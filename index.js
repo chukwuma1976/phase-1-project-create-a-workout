@@ -272,7 +272,7 @@ function makeWorkOut (mySplit){
 
     let input = document.createElement("input")
     input.placeholder = `${mySplit.maxFrequency}`
-    input.id = "numero"
+    input.id = "number"
     input.type = "text"
     
     let button = document.createElement("button")
@@ -285,7 +285,7 @@ function makeWorkOut (mySplit){
     let freq
     frequency.addEventListener('submit', (e)=>{
         e.preventDefault()
-        if (e.target.numero.value < mySplit.maxFrequency)freq = e.target.numero.value 
+        if (e.target.number.value < mySplit.maxFrequency)freq = e.target.number.value 
             else freq = mySplit.maxFrequency
         let keysOfLifts = Object.keys(mySplit.workOutDays)
     
@@ -309,7 +309,6 @@ function renderAndSelect(dayOfSplit, day){
 
     dayOfSplit.forEach (lifts=>{
         let dropdown = document.createElement('button')
-        dropdown.className = "dropdown"
         dropdown.textContent = `Select ${lifts} exercises`
         let bodypartClicked = false
         

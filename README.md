@@ -8,8 +8,6 @@ It has been shown that as little as 30 minutes of resistance training a week can
 
 Furthermore, the American Heart Association recommends at least 150 minutes of moderate-intensity aerobic activity (or 75 minutes of vigorous aerobic activity) per week. Go to https://bjsm.bmj.com/content/56/13/755 for more information.  You can find cardiovascular exercises that can help you to your goal of 150 minutes of cardio a week.
 
-I have obtained images from https://gfycat.com/. 
-
 How does this work?
 
 There are four headers.  All headers are collapsible which conserves screen space.  
@@ -26,3 +24,7 @@ The fourth header is titled "Click here to create your workout."  It opens up to
 
 Usage: 
     json-server --watch db.json
+
+For a visual demonstration go to https://youtu.be/CVya5aimHvg.
+
+I have obtained images from https://gfycat.com/. 
