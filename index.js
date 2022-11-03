@@ -36,8 +36,7 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders (push muscles) on day 1, back, shoulders, biceps (pull muscles) on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training",
         maxFrequency: 2,
-        workOutDays: {push: pushDay, pull: pullDay,legs: legDay
-        }
+        workOutDays: {push: pushDay, pull: pullDay,legs: legDay}
     }, 
     arnoldSplit: {
         name: "Arnold split workout",
@@ -45,8 +44,7 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training per week",
         maxFrequency: 2,
-        workOutDays: {chest_And_Back: chestAndBack, shoulders_And_Arms: shouldersAndArms, legs: legDay
-        }
+        workOutDays: {chest_And_Back: chestAndBack, shoulders_And_Arms: shouldersAndArms, legs: legDay}
     }, 
     broSplit: {
         name: "Body part split, aka 'Bro' split",
@@ -75,15 +73,15 @@ whyWorkOutList.innerHTML = ""
 const whyWorkOutHeader = document.getElementById('why-workout')
 
 function appendWhyWorkOut(){
-    let p1 = document.createElement('p')
+    const p1 = document.createElement('p')
     p1.textContent ="WEIGHT LOSS: exercise with a calorie deficit (eating fewer calories than you burn)"
-    let p2 = document.createElement('p')
+    const p2 = document.createElement('p')
     p2.textContent ="BODY RECOMPOSITION: you may want to gain muscle and lose fat but maintain your body weight"
-    let p3 = document.createElement('p')
+    const p3 = document.createElement('p')
     p3.textContent ="IMPROVED APPEARANCE: having a lean muscular body can be more attractive"
-    let p4 = document.createElement('p')
+    const p4 = document.createElement('p')
     p4.textContent ="OVERALL HEALTH: at least 150 minutes per week of moderate intensity cardio can reduce mortality  "
-    let p5 = document.createElement('p')
+    const p5 = document.createElement('p')
     p5.textContent ="GET STRONGER: also at least 30 minutes per week of resistance training can reduce mortalty  "
 
     whyWorkOutList.append(p1,p2,p3,p4,p5)
@@ -96,13 +94,13 @@ howToWorkOutList.innerHTML = ""
 const howToWorkOutHeader = document.getElementById('how-to-workout')
 
 function appendHowToWorkOut(){
-    let p1 = document.createElement('p')
+    const p1 = document.createElement('p')
     p1.textContent = "HOW MANY DAYS AND HOW MUCH TIME CAN YOU COMMIT?  WHAT DO YOU LIKE TO DO?"
-    let p2 = document.createElement('p')
+    const p2 = document.createElement('p')
     p2.textContent = "If you are really busy 2 days a week for 45 minutes each day may be pushing it. For most people 2-4 days per week is feasible."
-    let p3 = document.createElement('p')
+    const p3 = document.createElement('p')
     p3.textContent ="If you like lifting weights do it.  If you like other forms of physical activity do that. The best workout is the one you like to do that you can stick to and gives you results."
-    let p4 = document.createElement('p')
+    const p4 = document.createElement('p')
     p4.textContent ="You can start by selecting a workout split or customize your own split.  Don't forget to do your cardio."
 
     howToWorkOutList.append(p1,p2,p3,p4)
@@ -118,7 +116,7 @@ howToWorkOutHeader.addEventListener('mouseover', ()=>{
     if (howToWorkOutList.innerHTML==='') appendHowToWorkOut()
     else howToWorkOutList.innerHTML=''
 })
-// ===============================================
+// Exercise information header and create a workout header and inner elements
 
 const exerciseInfoHeader = document.getElementById('exercise-information')
 const exerciseInfoList = document.getElementById('information')
