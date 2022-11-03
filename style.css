@@ -1,11 +1,15 @@
-body {background: lightgoldenrodyellow}
+body {
+  background: lightgoldenrodyellow
+}
 
 h3 {
   color: darkblue;
   background: lightcyan;
 }
 
-h1 {background: lightskyblue}
+h1 {
+  background: lightskyblue
+}
 
 #workout-split {
   color: blue;
@@ -59,4 +63,10 @@ img {
   display: inline-block;
   padding: 5px;
   vertical-align: top;
+}
+#name-of {
+  background: lightsalmon
+}
+.piece-name {
+  color: blue
 }

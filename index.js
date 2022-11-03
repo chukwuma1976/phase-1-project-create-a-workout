@@ -128,6 +128,7 @@ const createWorkOutList = document.getElementById('create')
 const description = document.createElement('p')
 const splitList = document.createElement('div')
 const workoutWeek = document.createElement('div')
+
 const yourWorkOutList = document.getElementById('workout-list')
 const yourWorkOutHeader = document.getElementById('workout-split')
 
@@ -153,8 +154,8 @@ exerciseInfoHeader.addEventListener('click', ()=>{
         })
     }
 })
-//====================================================
 
+//creates an exercise list container for a muscle
 function renderExercise(muscle){
     let button = document.getElementById(muscle)
     exerciseInfoList.append(paragraph)
@@ -173,14 +174,14 @@ function renderExercise(muscle){
     })
 }
 
+//renders a clickable list of exercises for a muscle
 function displayListOfExercises(bodypart){
     fetch(`http://localhost:3000/${bodypart}`)
     .then(response => response.json())
     .then(data=>{
         for (let piece of data){
             let ex = document.createElement('p')
-            ex.id = piece.name
-            ex.style.color = "blue"
+            ex.className = 'piece-name'
             ex.textContent = piece.name.toUpperCase()
 
             let ul = document.createElement('ul')
@@ -211,7 +212,6 @@ function displayListOfExercises(bodypart){
 }
 
 //Event listener for choosing a workout split and creating a workout
-
 createWorkOutHeader.addEventListener('click', ()=>{
     createWorkOutList.innerHTML = ""
     if (infoHeaderClicked)infoHeaderClicked=false 
@@ -226,8 +226,8 @@ createWorkOutHeader.addEventListener('click', ()=>{
         })
     }
 })
-//=======================================================
 
+//creates a container for a specific split
 function renderSplit(workout){
     let button = document.getElementById(workout)
     createWorkOutList.append(description)
@@ -247,10 +247,11 @@ function renderSplit(workout){
     })
 }
 
+//displays general information describing a specific split
 function displaySplit(split){
     let nameOf = document.createElement('p')
     nameOf.textContent = split.name.toUpperCase()
-    nameOf.style.backgroundColor = 'lightsalmon'
+    nameOf.id = 'name-of'
     let purpose = document.createElement('p')
     purpose.textContent =`${split.name} ${split.purpose}.  It trains ${split.musclesTrained}.`
     let occurence = document.createElement('p')
@@ -292,7 +293,7 @@ function makeWorkOut (mySplit){
     }) 
 }
 
-//pick exercises based on a workout day
+//pick exercises based on a workout day and generate a workout simultaneously
 function renderAndSelect(dayOfSplit, day){
     let wrkoutdy = document.createElement('ul')
     let header = document.createElement('h4')
