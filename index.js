@@ -83,9 +83,7 @@ const workOutSplits = {
 const splitKeys = Object.keys(workOutSplits)
 
 //Why work out header and inner elements
-
 const whyWorkOutList = document.getElementById('why')
-whyWorkOutList.innerHTML = ""
 const whyWorkOutHeader = document.getElementById('why-workout')
 
 function appendWhyWorkOut(){
@@ -104,9 +102,7 @@ function appendWhyWorkOut(){
 }
 
 //How to work out header and inner elements
-
 const howToWorkOutList = document.getElementById('how')
-howToWorkOutList.innerHTML = ""
 const howToWorkOutHeader = document.getElementById('how-to-workout')
 
 function appendHowToWorkOut(){
@@ -155,18 +151,17 @@ let createWorkOutClicked = false
 let workOutButtonClicked = false
 
 //**Event listener for exercise information**
-
 exerciseInfoHeader.addEventListener('click', ()=>{
     exerciseInfoList.innerHTML = ""
     if (infoHeaderClicked){infoHeaderClicked=false} 
     else {
         infoHeaderClicked=true
-        exerciseKeys.forEach (keys=>{
+        exerciseKeys.forEach (key=>{
             let bodypart = document.createElement("button")
-            bodypart.textContent = keys
-            bodypart.id = keys
+            bodypart.textContent = key
+            bodypart.id = key
             exerciseInfoList.append(bodypart)
-            renderExercise(keys)
+            renderExercise(key)
         })
     }
 })
@@ -195,10 +190,10 @@ function displayListOfExercises(bodypart){
     fetch(`http://localhost:3000/${bodypart}`)
     .then(response => response.json())
     .then(data=>{
-        for (let piece of data){                       //each piece of data is an exercise
+        data.forEach(exercise=>{
             let ex = document.createElement('p')
-            ex.className = 'piece-name'
-            ex.textContent = piece.name.toUpperCase()
+            ex.className = 'exercise-name'
+            ex.textContent = exercise.name.toUpperCase()
 
             let ul = document.createElement('ul')
             
@@ -213,16 +208,16 @@ function displayListOfExercises(bodypart){
                     liftClicked=true
 
                     let description = document.createElement('p')
-                    description.textContent = `${piece.name} focuses on these muscles: ${piece.muscles}.`
+                    description.textContent = `${exercise.name} focuses on these muscles: ${exercise.muscles}.`
                     let image = document.createElement('img')
-                    image.src = piece.image
+                    image.src = exercise.image
 
                     ul.append(description, image)
                     ex.append(ul)
                 }
             })
             exerciseList.append(ex)
-        }
+        })       
     })
     .catch((error)=>alert("There is an error"))
 }
@@ -233,12 +228,12 @@ createWorkOutHeader.addEventListener('click', ()=>{
     if (infoHeaderClicked)infoHeaderClicked=false 
     else {
         infoHeaderClicked=true
-        splitKeys.forEach (keys=>{
+        splitKeys.forEach (key=>{
             let workOutSplit = document.createElement("button")
-            workOutSplit.textContent = workOutSplits[keys].name
-            workOutSplit.id = keys
+            workOutSplit.textContent = workOutSplits[key].name
+            workOutSplit.id = key
             createWorkOutList.append(workOutSplit)
-            renderSplit(keys)
+            renderSplit(key)
         })
     }
 })
@@ -340,14 +335,14 @@ function renderAndSelect(dayOfSplit, day){
                 fetch(`http://localhost:3000/${lifts}`)
                 .then(response => response.json())
                 .then(data=>{
-                    for (let piece of data){
+                    data.forEach(exercise=>{
                         let thisLift = document.createElement('p')
                         thisLift.className = "this-lift"
-                        thisLift.textContent = piece.name
+                        thisLift.textContent = exercise.name
                         thisLift.addEventListener('click', ()=>{
                             
                             let newLift = document.createElement('p')
-                            newLift.textContent = `${piece.name}: 2-5 sets for 5-20 reps  `
+                            newLift.textContent = `${exercise.name}: 2-5 sets for 5-20 reps  `
 
                             let deleteBtn = document.createElement('button')
                             deleteBtn.textContent = "X"
@@ -357,7 +352,7 @@ function renderAndSelect(dayOfSplit, day){
                             deleteBtn.addEventListener('click', ()=>newLift.remove())
                         })
                         exerciseChoices.append(thisLift)
-                    }
+                    })
                 })
                 .catch((error)=>alert("There is an error"))
             }   
