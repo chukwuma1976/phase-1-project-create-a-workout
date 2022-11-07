@@ -28,7 +28,10 @@ const workOutSplits = {
         musclesTrained: "chest, back, shoulders, arms (upper body) on one day and legs (lower body) on the other day",
         frequency: "2-3 times per week for a total of 4-6 days of training per week",
         maxFrequency: 3,
-        workOutDays: {upper: upperDay, lower: legDay}
+        workOutDays: {
+            upper: upperDay, 
+            lower: legDay
+        }
     }, 
     pushPullLegs: {
         name: "Push pull legs workout",
@@ -36,7 +39,11 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders (push muscles) on day 1, back, shoulders, biceps (pull muscles) on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training",
         maxFrequency: 2,
-        workOutDays: {push: pushDay, pull: pullDay,legs: legDay}
+        workOutDays: {
+            push: pushDay, 
+            pull: pullDay,
+            legs: legDay
+        }
     }, 
     arnoldSplit: {
         name: "Arnold split workout",
@@ -44,7 +51,11 @@ const workOutSplits = {
         musclesTrained: "chest, triceps, shoulders on day 1, back, shoulders, biceps on day 2, and legs on day 3",
         frequency: "2 times per week for a total of 6 days of training per week",
         maxFrequency: 2,
-        workOutDays: {chest_And_Back: chestAndBack, shoulders_And_Arms: shouldersAndArms, legs: legDay}
+        workOutDays: {
+            chest_And_Back: chestAndBack, 
+            shoulders_And_Arms: shouldersAndArms, 
+            legs: legDay
+        }
     }, 
     broSplit: {
         name: "Body part split, aka 'Bro' split",
@@ -52,7 +63,12 @@ const workOutSplits = {
         musclesTrained: "chest, back, shoulders, arms, legs each trained one day per week",
         frequency: "once per week for a total of 5 days of training per week",
         maxFrequency: 1,
-        workOutDays: {chest: chestDay, back: backDay, shoulder: shoulderDay, arm: armDay, leg: legDay}
+        workOutDays: {
+            chest: chestDay, 
+            back: backDay, 
+            shoulder: shoulderDay, 
+            arm: armDay, 
+            leg: legDay}
     },
     customSplit: {
         name: "Custom training split",
@@ -179,7 +195,7 @@ function displayListOfExercises(bodypart){
     fetch(`http://localhost:3000/${bodypart}`)
     .then(response => response.json())
     .then(data=>{
-        for (let piece of data){
+        for (let piece of data){                       //each piece of data is an exercise
             let ex = document.createElement('p')
             ex.className = 'piece-name'
             ex.textContent = piece.name.toUpperCase()
@@ -284,7 +300,7 @@ function makeWorkOut (mySplit){
     let freq
     frequency.addEventListener('submit', (e)=>{
         e.preventDefault()
-        if (e.target.number.value < mySplit.maxFrequency)freq = e.target.number.value 
+        if (e.target.number.value < mySplit.maxFrequency) freq = e.target.number.value 
             else freq = mySplit.maxFrequency
         let keysOfLifts = Object.keys(mySplit.workOutDays)
     
@@ -334,7 +350,7 @@ function renderAndSelect(dayOfSplit, day){
                             newLift.textContent = `${piece.name}: 2-5 sets for 5-20 reps  `
 
                             let deleteBtn = document.createElement('button')
-                            deleteBtn.textContent = "delete"
+                            deleteBtn.textContent = "X"
 
                             newLift.append(deleteBtn)
                             liftDay.append(newLift)
