@@ -1,6 +1,6 @@
 Create A Workout
 
-This is an application that is designed to help anybody with fitness goals create a personalized workout plan.  Everybody is different and has different needs and goals.  Therefore, if one wants to be the best version of oneself then a customized workout plan can contribute to that.  There are a multitude of ways to exericse but the best exercise is the one that you like to do and can stick to for the rest of your life.
+This is an application that is designed to help anybody with fitness goals create a personalized workout plan.  Everybody is different and has different needs and goals.  Therefore, if one wants to be the best version of oneself then a customized workout plan can contribute to that.  There are a multitude of ways to exercise but the best exercise is the one that you like to do and can stick to for the rest of your life.
 
 This is more than just designing a workout plan.  This application is informative as well.  You can learn about most exercises here with brief descriptions and visuals.
 
